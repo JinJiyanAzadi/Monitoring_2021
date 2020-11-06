@@ -28,7 +28,7 @@ plot(cadmium, zinc)
 # I will get the same plot as the one made by using the $ option
 
 # How to impress yr supervisor :D
-# scareplot matrixes
+# scatterplot matrixes
 pairs(meuse)
 
 # Ex 3: how to pair only certain elements of the dataset? 
