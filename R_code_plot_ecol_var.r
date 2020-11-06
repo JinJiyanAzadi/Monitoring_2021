@@ -32,3 +32,4 @@ plot(cadmium, zinc)
 pairs(meuse)
 
 # Ex 3: how to pair only certain elements of the dataset? 
+pairs(~ cadmium + zinc, data = meuse, main = "Relation between Cadmium and Zinc")
