@@ -72,8 +72,10 @@ getwd()
 setwd("D:/Utenti/Norma/Desktop/lab")
 
 # Before going ahead I have installed the "spatsat package"
-library(spatstat)# import data: head=T means that there is a column headercovid <-read.table("covid_agg.csv",head=T)attach(covid)## The following objects are masked from covid (pos = 6):####    cases, cat, country, lat, loncovids <-ppp(lon, lat,c(-180,180),c(-90,90))## if you do not use attach(covid):# covids <- ppp(covid$lon, covid$lat, c(-180,180), c(-90,90))Friend Requestsd <-density(covids)plot(d)points(covids)
-covid <-read.table("covid_agg.csv",head=T)
+library(spatstat)
+
+# import data: head=T means that there is a column header
+covid <- read.table("covid_agg.csv", head=T)
 attach(covid)
 
 # After "enter" the below message might appear
@@ -85,7 +87,7 @@ attach(covid)
 # if you do not use attach(covid) write as per below:
 # covids <- ppp(covid$lon, covid$lat, c(-180,180), c(-90,90))Friend Requests
 
-covids <-ppp(lon, lat,c(-180,180),c(-90,90))
+covids <- ppp(lon, lat, c(-180,180), c(-90,90))
 covids
 # After enter the answer from R will be:
 # Planar point pattern: 152 points
