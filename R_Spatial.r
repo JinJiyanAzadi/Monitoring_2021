@@ -64,7 +64,7 @@ setwd("/Users/Yourname/lab/")
 # Linux
 setwd("~/lab/")
 
-# The Windows imput above did not work for me so I had to use the getwd() to see my path in the laptotp" so after 
+# The Windows input above did not work for me so I had to use the getwd() to see my path in the laptotp" so after 
 # that I managed to smoothly follow the next steps of the code to get to the first graph of the covid data.
 
 getwd()
