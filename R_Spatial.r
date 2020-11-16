@@ -52,6 +52,9 @@ ggplot(d, aes(x = biofuels, y = oxydative)) + geom_line() + geom_point(size = 5,
 ggplot(d, aes(x = biofuels, y = oxydative)) + geom_polygon()
 ggplot(d, aes(x = biofuels, y = oxydative)) + geom_line() + geom_point(size = 5, col = "red") + geom_polygon()
 
+# Playing around with the "aes" 
+ggplot(d, aes(x = biofuels, y = oxydative)) + geom_line(size = 3, colour = "red") + geom_point(size = 5, col = "blue") + geom_polygon(fill = "purple", size = 1)
+
 # Import data into R from an external source: first, create a new directory called "lab" then we set the directory
 setwd("path/lab")
 
