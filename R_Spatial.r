@@ -75,10 +75,22 @@ setwd("D:/Utenti/Norma/Desktop/lab")
 library(spatstat)# import data: head=T means that there is a column headercovid <-read.table("covid_agg.csv",head=T)attach(covid)## The following objects are masked from covid (pos = 6):####    cases, cat, country, lat, loncovids <-ppp(lon, lat,c(-180,180),c(-90,90))## if you do not use attach(covid):# covids <- ppp(covid$lon, covid$lat, c(-180,180), c(-90,90))Friend Requestsd <-density(covids)plot(d)points(covids)
 covid <-read.table("covid_agg.csv",head=T)
 attach(covid)
+
+# After "enter" the below message might appear
+
+# The following objects are masked from covid (pos = 6)
+# cases, cat, country, lat, lon
+
+# Use the below sctript:
+# if you do not use attach(covid) write as per below:
+# covids <- ppp(covid$lon, covid$lat, c(-180,180), c(-90,90))Friend Requests
+
 covids <-ppp(lon, lat,c(-180,180),c(-90,90))
 covids
-Planar point pattern: 152 points
-window: rectangle = [-180, 180] x [-90, 90] units
+# After enter the answer from R will be:
+# Planar point pattern: 152 points
+# window: rectangle = [-180, 180] x [-90, 90] units
+
 d <-density(covids)
 plot(d)
 points(covids)
