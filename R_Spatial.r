@@ -65,7 +65,7 @@ setwd("/Users/Yourname/lab/")
 setwd("~/lab/")
 
 # The Windows imput above did not work for me so I had to use the getwd() to see my path in the laptotp" so after 
-# that I managed to smoothly follow the next steps of the code to get to the first graph pf the covid data.
+# that I managed to smoothly follow the next steps of the code to get to the first graph of the covid data.
 
 getwd()
 [1] "D:/Utenti/Norma/Desktop/lab"
