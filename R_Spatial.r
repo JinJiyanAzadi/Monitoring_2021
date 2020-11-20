@@ -70,33 +70,28 @@ setwd("~/lab/")
 # The Windows input above did not work for me so I had to use the getwd() to see my path in the laptotp" so after 
 # that I managed to smoothly follow the next steps of the code to get to the first graph of the covid data.
 
-getwd()
+
+# (20.11.2020)
+
+getwd() # get the directory window
 [1] "D:/Utenti/Norma/Desktop/lab"
-setwd("D:/Utenti/Norma/Desktop/lab")
+setwd("D:/Utenti/Norma/Desktop/lab") # set the directory window
 
 # Before going ahead I have installed the "spatsat package"
 library(spatstat)
 
 # import data: head=T means that there is a column header
-covid <- read.table("covid_agg.csv", head=T)
-attach(covid)
+covid <- read.table("covid_agg.csv", head=T) # T=TRUE as the dataset starts from row 2 with "head=T" we are telling to R thata data start from second row. 
+#If we siad F, then the data would start from first row.
 
-# After "enter" the below message might appear
+head(covid)
+summary(covid)
+names(covid) # to see the names of the coordinates of the dataframe
+# x=log and y=lat
 
-# The following objects are masked from covid (pos = 6)
-# cases, cat, country, lat, lon
+# Making the plot of all data
+ggplot(covid, aes(x = lon, y = lat)) + geom_point()
 
-# Use the below sctript:
-# if you do not use attach(covid) write as per below:
-# covids <- ppp(covid$lon, covid$lat, c(-180,180), c(-90,90))Friend Requests
-
-covids <- ppp(lon, lat, c(-180,180), c(-90,90))
-covids
-# After enter the answer from R will be:
-# Planar point pattern: 152 points
-# window: rectangle = [-180, 180] x [-90, 90] units
-
-d <-density(covids)
-plot(d)
-points(covids)
+# Plotting changing the size accordingly to the number of cases
+ggplot(covid, aes(x = lon, y = lat, size = cases)) + geom_point()
 
