@@ -35,7 +35,7 @@ points(covid_planar)
 
 # How to change the colour of the map
 cl <- colorRampPalette(c('yellow','orange','red'))(100) 
-plot(density_map, col = cl)
+plot(density_map, col = cl)  # Plot the map using the inputs set in "cl"
 points(covid_planar)
 
 # To overlap the countries on a map, we need to use a new library --> gdal / OSGeo association 
