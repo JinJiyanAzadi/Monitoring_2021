@@ -76,7 +76,7 @@ coastlines <- readOGR('ne_10m_coastline.shp')
 
 # Let's replot now the density map adding the coastlines we just integrated
 
-plot(coastlines, add = TURE) # T= the coastlines map to be on top of the previous map, if otherwise, I will only see the coastlines map
+plot(coastlines, add = TRUE) # T= the coastlines map to be on top of the previous map, if otherwise, I will only see the coastlines map
 
 # now we change the points, we switch to the filled points to be more visible -> check again the point character table, we will use the point 19
 coastlines <- readOGR('ne_10m_coastline.shp')
