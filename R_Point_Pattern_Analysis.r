@@ -84,4 +84,42 @@ plot(density_map, col = cl)
 points(covid_planar, pch = 19)
 plot(coastlines, add = TRUE)
 
+# Now we will export the map into a .png image
+png('Figure1.png) # it will save the image in .pgn file in the lab folder
+
+Full code:
+png("figure1.png")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) #
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+# To save it in .pdf
+
+pdf("figure1.pdf")
+cl <- colorRampPalette(c('pink','green','orange','red','magenta'))(100) # 
+plot(density_map, col = cl)
+points(covid_planar, pch = 19, cex = 0.5)
+plot(coastlines, add = TRUE)
+dev.off()
+
+# Is it possible to save the file by defining the image dimentions? Yes -> ggsave function
+# We can also zoom and crop the image via the "zoom function" (we will see this later on)
+
+# Now we will interpolate the data
+# First explain to R the data, what they are
+marks(covid_planar) <- cases # we mark every point with the cases
+cases_map <- Smooth(covid_planar)   # is the function to interpolate the data with higher extention
+
+plot(cases_map, col = cl)
+plot(coastlines, add = T)
+points(covid_planar)
+plot(cases_map, col = cl)
+points(covid_planar)
+plot(coastlines, add = T)
+
+# The coastline is heavy to load so we can use the "gsimplify"
+# coastlines_simp <- gSimplify(coastlines, tol = 3, topologyPreserve = TRUE)
+
 
