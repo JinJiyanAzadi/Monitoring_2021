@@ -47,7 +47,7 @@ install.packages("rgdal")
 
 # (23.11.2020)
 
-library(regdal) #OsGeo website
+library(rgdal) #OsGeo website
 setwd()
 
 covid <- read.table("covid_agg.csv", header = T)
