@@ -6,7 +6,7 @@ install.packages("spatstat")
 library(spatstat)
 
 getwd()
-setwd()
+setwd("D:/Utenti/Norma/Desktop/lab")
 covid <- read.table("covid_agg.csv", header = T)
 covid
 
@@ -48,7 +48,7 @@ install.packages("rgdal")
 # (23.11.2020)
 
 library(rgdal) #OsGeo website
-setwd()
+setwd("D:/Utenti/Norma/Desktop/lab")
 
 covid <- read.table("covid_agg.csv", header = T)
 covid
