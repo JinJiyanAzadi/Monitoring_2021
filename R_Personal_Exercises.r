@@ -19,3 +19,14 @@ plot(Spoints, cex=Spoints$cases/10000, add=T)
 
 # In order to increase the thikness of the circles' line use the "lwd" arg and to unify the colour, use the "col" arg:
 plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
+
+# Complete code:
+
+marks(covid_planar) <- cases  # interpolation
+cases_map <- Smooth(covid_planar) # interpolation
+cl <- colorRampPalette(c('lightpink2','lightsalmon','tomato1','red3','maroon'))(100) 
+plot(density_map, col = cl)
+plot(cases_map, col = cl)
+plot(coastlines, add = T)
+points(covid_planar)
+plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
