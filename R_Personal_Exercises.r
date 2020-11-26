@@ -26,7 +26,6 @@ Spoints <- st_as_sf(covid, coords = c("lon", "lat"))
 marks(covid_planar) <- cases  # interpolation
 cases_map <- Smooth(covid_planar) # interpolation
 cl <- colorRampPalette(c('lightpink2','lightsalmon','tomato1','red3','maroon'))(100) 
-plot(density_map, col = cl)
 plot(cases_map, col = cl)
 plot(coastlines, add = T)
 points(covid_planar)
