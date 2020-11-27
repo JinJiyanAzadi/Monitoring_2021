@@ -32,6 +32,10 @@ plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 library(sf)
 library(spatstat)
 library(rgdal)
+setwd("D:/Utenti/Norma/Desktop/lab")
+covid <- read.table("covid_agg.csv", header = T)
+covid
+attach(covid) 
 Spoints <- st_as_sf(covid, coords = c("lon", "lat"))
 marks(covid_planar) <- cases  # interpolation
 cases_map <- Smooth(covid_planar) # interpolation
