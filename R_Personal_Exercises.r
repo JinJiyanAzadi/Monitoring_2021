@@ -22,6 +22,16 @@ plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 
 # Complete code:
 
+# 0-library(spatstat)
+# 1-Read the table
+# 2-Chck with head() if all data are ok + attach() + ppp planar
+# 3-Interpolation - via marks() to explain the data that you use, in this case the "cases" coloumn
+#
+
+
+library(sf)
+library(spatstat)
+library(rgdal)
 Spoints <- st_as_sf(covid, coords = c("lon", "lat"))
 marks(covid_planar) <- cases  # interpolation
 cases_map <- Smooth(covid_planar) # interpolation
