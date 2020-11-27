@@ -28,7 +28,8 @@ plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 # 3-identify covid planar with ppp
 # 4-set the readOGR for the coastline
 # 5-Interpolation - via marks() to explain the data that you use, in this case the "cases" coloumn
-#
+# 6-set the cl
+# 7-start plotting all
 
 
 library(sf) 
