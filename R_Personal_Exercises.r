@@ -22,14 +22,16 @@ plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
 
 # Complete code:
 
-# 0-library(spatstat)
+# 0-library(spatstat + sf + rgdal)
 # 1-Read the table
-# 2-Chck with head() if all data are ok + attach() + ppp planar
-# 3-Interpolation - via marks() to explain the data that you use, in this case the "cases" coloumn
+# 2-Chck with head() if all data are ok + attach()
+# 3-identify covid planar with ppp
+# 4-set the readOGR for the coastline
+# 5-Interpolation - via marks() to explain the data that you use, in this case the "cases" coloumn
 #
 
 
-library(sf)
+library(sf) 
 library(spatstat)
 library(rgdal)
 setwd("D:/Utenti/Norma/Desktop/lab")
@@ -39,11 +41,11 @@ attach(covid)
 covid_planar <- ppp(lon, lat, c(-180, 180), c(-90, 90))
 coastlines <- readOGR('ne_10m_coastline.shp')
 density_map <- density(covid_planar)
-Spoints <- st_as_sf(covid, coords = c("lon", "lat"))
+Spoints <- st_as_sf(covid, coords = c("lon", "lat")) # converts an object into sf readible by the f(sf)
 marks(covid_planar) <- cases  # interpolation
 cases_map <- Smooth(covid_planar) # interpolation
 cl <- colorRampPalette(c('lightpink2','lightsalmon','tomato1','red3','maroon'))(100) 
 plot(density_map)
 plot(cases_map, col = cl)
 plot(coastlines, add = T)
-plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T)
+plot(Spoints, cex=Spoints$cases/10000, col = 'purple3', lwd = 3, add=T) # the "cases/10000" is done to normalise the numbers and avoid them to exit the map field 
