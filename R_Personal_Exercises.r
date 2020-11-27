@@ -34,8 +34,9 @@ library(spatstat)
 library(rgdal)
 setwd("D:/Utenti/Norma/Desktop/lab")
 covid <- read.table("covid_agg.csv", header = T)
-covid
+head(covid)
 attach(covid) 
+coastlines <- readOGR('ne_10m_coastline.shp')
 Spoints <- st_as_sf(covid, coords = c("lon", "lat"))
 marks(covid_planar) <- cases  # interpolation
 cases_map <- Smooth(covid_planar) # interpolation
