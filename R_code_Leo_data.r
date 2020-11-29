@@ -25,3 +25,11 @@ points(leo_ppp)
 
 
 # Exercise: do the same for chlorophyll in the sediment (chls)
+
+library(spatstat)
+
+setwd("D:/Utenti/Norma/Desktop/lab")
+leo <- read.table("dati_zabotti.csv, head = T, sep = ",")
+attach(leo)
+leo_pp <- ppp(x, y, c(2300000, 2325000), c(5005000, 5045000))
+
