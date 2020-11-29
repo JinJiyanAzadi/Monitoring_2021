@@ -51,3 +51,18 @@ points(leo_ppp)
 
 plot(t_map)
 points(leo_ppp)
+
+# Map all four of them with better resolution for the points
+
+par(mfrow=c(2,2))
+plot(chlh_map)
+points(leo_ppp, col = "red", lwd = 2)
+
+plot(t_map)
+points(leo_ppp, col = "red", lwd = 2)
+
+plot(chls_map)
+points(leo_ppp, col = "red", lwd = 2)
+
+plot(t_map)
+points(leo_ppp, col = "red", lwd = 2)
