@@ -149,10 +149,10 @@ points(leo_ppp)
 
 # now let's map 3 rows and 1 coloumn 
 par(mfrow=c(3,1))
-plot(density_map, col=cl)
+plot(density_map, col=cl) # density shows the shallow water's map of the lagoon 
 points(leo_ppp)
-plot(chlh_map, col=cl)
+plot(chlh_map, col=cl) # chlorophil in the water --> eastern part closer to the sea 
 points(leo_ppp)
-plot(chls_map, col=cl)
+plot(chls_map, col=cl) # chrorophil in the sediment 
 points(leo_ppp)
 
