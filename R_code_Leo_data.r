@@ -107,10 +107,52 @@ cl <- colorRampPalette(c('yellow','orange','red','green'))(100) # to change the 
 plot(density_map, col = cl)
 points(leo_ppp)
 
+# prof code
+library(spatstat)
+attach(leo)
+marks(leo_ppp) <- chlh # chlh chlorophil in the water - the h stands for h2o
+chlh_map <- Smooth(leo_ppp)
+ 
+cl <- colorRampPalette(c('yellow','orange','red','green'))(100)  
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
 # map the chls now (see my code above) 
 
-marks(leo_ppp) <- chls
+marks(leo_ppp) <- chls # cls is the chlorophil in the sediment
 chls_map <- Smooth(leo_ppp)
 plot(chls_map, col = cl)
+points(leo_ppp)
+
+par(mfrow=c(1,2)) # multipanel
+plot(chlh_map, col = cl)
+points(leo_ppp)
+
+plot(chls_map, col = cl)
+points(leo_ppp)
+
+# multipanel
+par(mfrow=c(1,3))
+ 
+# first graph: density map
+plot(density_map, col=cl)
+points(leo_ppp)
+
+# second map
+plot(chlh_map, col=cl)
+points(leo_ppp)
+
+# third graph
+plot(chls_map, col=cl)
+points(leo_ppp)
+
+
+# now let's map 3 rows and 1 coloumn 
+par(mfrow=c(3,1))
+plot(density_map, col=cl)
+points(leo_ppp)
+plot(chlh_map, col=cl)
+points(leo_ppp)
+plot(chls_map, col=cl)
 points(leo_ppp)
 
