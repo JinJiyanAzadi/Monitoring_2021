@@ -14,7 +14,7 @@ p224r63_2011 <- brick("p224r63_2011_masked.grd")
 p224r63_2011 # to check the rasetr brick data details
 plot(p224r63_2011)
 
-# Let's plot changing the cplours
+# Let's plot changing the colours
 cl <- colorRampPalette(c('black','grey','light grey'))(100) # 
 plot(p224r63_2011, col=cl)
 
