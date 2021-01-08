@@ -8,7 +8,7 @@ library(RStoolbox)
 
 # Now as usual we set the wd
 setwd("D:/Utenti/Norma/Desktop/lab")
-# After unwipping the folder, we start connecting the data to R
+# After unzipping the folder, we start connecting the data to R
 # The function "brick()" is the equivalent of "read.table()", but now we use the "brick" as we are working with raster data(pixels --> .grd extension)
 p224r63_2011 <- brick("p224r63_2011_masked.grd")
 p224r63_2011 # to check the rasetr brick data details
