@@ -2,6 +2,10 @@
 # R code for remote sensing analysis to monitor ecosystem changes in space and time
 install.packages(c("raster", "RStoolbox")) # raster data are based on images i.e. pixels + RStoolbox is used for remote sensing data analysis 
 
+library(raster)
+library(RStoolbox)
+
+
 # Now as usual we set the wd
 setwd("D:/Utenti/Norma/Desktop/lab")
 # After unwipping the folder, we start connecting the data to R
