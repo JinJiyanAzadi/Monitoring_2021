@@ -1,7 +1,11 @@
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html
 
-library(ncdf4)
+install.packages("ncdf4")
+
+library(ncdf4) # the .nc format is the one related to the ESA data. This library will read these type of files
 library(raster)
+
+setwd("D:")
 
 t <- raster("c_gls_LST10-DC_202012210000_GLOBE_GEO_V1.2.1.nc")
 
