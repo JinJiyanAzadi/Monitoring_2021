@@ -36,3 +36,5 @@ plot(dift, col=cldif)
 # difference in time between the two images
 dif <- tjan21-toct20
 plot(dif)
+
+par(mfrow, c=
