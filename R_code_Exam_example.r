@@ -1,6 +1,6 @@
 # This is the real code used/modified during the lec of the 11.01.2021
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html
-# Login and dowload the .nc filed of the images of the 10days circle - we used the one of the 10.01.2021 and the 01.10.2020
+# Login and dowload the .nc files of the images of the 10days circle - we used the one of the 10.01.2021 and the 01.10.2020
 
 install.packages("ncdf4")
 
