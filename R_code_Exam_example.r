@@ -31,7 +31,7 @@ plot(toct20)
 
 dift <- tjan21 - toct20
 cldif <- colorRampPalette(c('blue','white','red'))(100) #
-plot(dift, col=cldif, main="T° Jan21 vs Oct20")
+plot(dift, col=cldif, main="T° dif Jan21 vs Oct20")
 
 
 # To plot them together
