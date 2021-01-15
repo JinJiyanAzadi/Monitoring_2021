@@ -24,7 +24,15 @@ plot(copNDVI, col=clymed)
 
 # Yellow in the higher band
 clymax <- colorRampPalette(c('red','blue','yellow'))(100) #
+plot(copNDVI, col=clymax
+     
+# Now we plot the medium and high yellow maps to see the difference 
+par(mfrow=c(1,2))
+clymed <- colorRampPalette(c('red','yellow','blue'))(100) # not good map
+plot(copNDVI, col=clymed)
+clymax <- colorRampPalette(c('blue','red','yellow'))(100) # best map
 plot(copNDVI, col=clymax)
+
 
 # How to crop the image from the wider data 
 ext <- c(0,20,35,55)  # xmin xmax ymin ymax // ext is a fixed argument, cannot change the name
