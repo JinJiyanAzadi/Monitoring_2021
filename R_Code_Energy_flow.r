@@ -74,6 +74,7 @@ plot(dvi2, col=cl)
 par(mfrow=c(2,1)) # multiframe to compare the data over time
 plot(dvi1, col=cl, main="DVI before the cut")
 plot(dvi2, col=cl, main="DVI after the cut")
+# The higher the level of yellow the lower the capability of doing photosynthesis 
 
 # Difference in biomass - DVI - before/after the cut so DVI1-DVI2
 difdvi <- dvi1 - dvi2
@@ -95,6 +96,7 @@ hist(difdvi, col="red")
 # dvi2
 # difdvi
 # histogtame
+#The titles will drop off, but using the ggplot() we can re-add them
 par(mfrow=c(3,2))
 plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
 plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
