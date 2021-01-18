@@ -38,3 +38,8 @@ plot(copNDVI, col=clymax)
 ext <- c(0,20,35,55)  # xmin xmax ymin ymax // ext is a fixed argument, cannot change the name
 copNDVI_Italy <- crop(copNDVI, ext)
 plot(copNDVI_Italy, col=clymax)
+     
+# 18.01.2021
+# We have saved the two images "defo" in the lab forlder
+library(raster)
+library(RStoolbox)
