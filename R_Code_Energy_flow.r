@@ -45,3 +45,61 @@ library(raster)
 library(RStoolbox)
 setwd("D:/Utenti/Norma/Desktop/lab")
 defor1 <- brick("defor1_.jpg") #defor1_.png if errors come out: "defor1_.png" as the file was actually saved as .png
+
+plotRGB(defor1, 1,2,3, stretch="Lin") # RGB to recap is the way how tech items reflect the colours so the colours bands // the "stretch" is to amplify the colours 
+# or plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+
+#
+defor2 <- brick("defor2_.png")
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+par(mfrow=c(2,1))
+plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+
+defor1
+
+# compute the DVI for the first period
+dvi1 <- defor1$defor1_.1 - defor1$defor1_.2 # connecting the colours band of the same image and subtract them to get the DVI
+ 
+dev.off() # to cancel the things done before
+plot(dvi1)
+
+cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme
+plot(dvi1, col=cl)
+
+dvi2 <- defor2$defor2_.1 - defor2$defor2_.2
+cl <- colorRampPalette(c('darkblue','yellow','red','black'))(100) # specifying a color scheme
+plot(dvi2, col=cl)
+
+par(mfrow=c(2,1)) # multiframe to compare the data over time
+plot(dvi1, col=cl, main="DVI before the cut")
+plot(dvi2, col=cl, main="DVI after the cut")
+
+# Difference in biomass - DVI - before/after the cut so DVI1-DVI2
+difdvi <- dvi1 - dvi2
+dev.off()
+plot(difdvi)
+
+cldif <- colorRampPalette(c('blue','white','red'))(100) 
+plot(difdvi, col=cldif)
+plot(difdvi, col=cldif, main="Amount of energy lost!") # the amount of energy=biomass we lost cutting the forest to make space for the agriculture
+
+# Plotting now the histogram we can represent the amount of biomass loss, as the positive values are more then the negative, it means 
+# that in the subtractions of the DVIs we have a great loss of biomass
+hist(difdvi, col="red")
+
+# Final par for comparison:
+# defor1
+# defor2
+# dvi1
+# dvi2
+# difdvi
+# histogtame
+par(mfrow=c(3,2))
+plotRGB(defor1, r=1, g=2, b=3, stretch="Lin")
+plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
+plot(dvi1, col=cl, main="biomass before cut")
+plot(dvi2, col=cl, main="biomass after cut")
+plot(difdvi, col=cldif, main="amount of energy lost!")
+hist(difdvi, col="red")
+
