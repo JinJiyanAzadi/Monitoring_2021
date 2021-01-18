@@ -43,3 +43,5 @@ plot(copNDVI_Italy, col=clymax)
 # We have saved the two images "defo" in the lab forlder
 library(raster)
 library(RStoolbox)
+setwd("D:/Utenti/Norma/Desktop/lab")
+defor1 <- brick("defor1_.jpg") #defor1_.png if errors come out: "defor1_.png" as the file was actually saved as .png
