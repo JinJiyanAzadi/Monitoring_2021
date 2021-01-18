@@ -59,7 +59,8 @@ plotRGB(defor2, r=1, g=2, b=3, stretch="Lin")
 defor1
 
 # compute the DVI for the first period
-dvi1 <- defor1$defor1_.1 - defor1$defor1_.2 # connecting the colours band of the same image and subtract them to get the DVI
+dvi1 <- defor1$defor1_.1 - defor1$defor1_.2 
+# linking using the “$” the colours band ”.1 & .2”  of the same image “defor1_” and subtract them to get the DVI
  
 dev.off() # to cancel the things done before
 plot(dvi1)
