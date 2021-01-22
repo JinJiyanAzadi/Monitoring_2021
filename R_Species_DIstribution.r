@@ -32,23 +32,30 @@ preds <- stack(lst)
 cl <- colorRampPalette(c('blue','orange','red','yellow')) (100)
 plot(preds, col=cl)
 
+# Plot preds and occurrences
 plot(preds$elevation, col=cl, main='elevation')
 points(species[species$Occurrence == 1,], pch=17)
 
 plot(preds$temperature, col=cl, main='temperature')
 points(species[species$Occurrence == 1,], pch=17)
 
+plot(preds$precipitation, col=cl)
+points(species[species$Occurrence == 1,], pch=17)
+
 plot(preds$vegetation, col=cl, main='vegetation')
 points(species[species$Occurrence == 1,], pch=17)
 
+# Now we build the model with the sdm f()
 datasdm <- sdmData(train=species, predictors=preds)
 datasdm
 
-# Now we build the model with the sdm f()
+# Model
 m1 <- sdm(Occurrence ~ elevation + precipitation + temperature + vegetation, data=datasdm, methods = "glm")  # method="gls" means generalised model
 
 # make the raster output layer
 p1 <- predict(m1, newdata=preds)
+
+# Plot the output
 plot(p1, col=cl)
 points(species[species$Occurrence == 1,], pch=17)
 
