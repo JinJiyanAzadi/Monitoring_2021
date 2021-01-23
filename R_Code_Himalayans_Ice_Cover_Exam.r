@@ -4,14 +4,15 @@ library(raster) # raster data i.e. images(pixels)
 library(RStoolbox) #  for remote sensing
 library(rgdal) # coastlines
 library(ncdf4) # when using .nc files // the .nc format is the one related to the ESA data. This library will read these types of files
+library(clorspace) # to choose a set palette from the package
 
 setwd("D:/Utenti/Norma/Desktop/lab")
 
-IC_Jan21 <- brick("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc")
+IC_Jan21 <- raster("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc")
 IC_Jan21 # to see the carachteristics of the data
 plot(IC_Jan21) # we are not happy with the colours so we will change it but forst we add the coastlines
 
-# Adding the coastlines
+# Adding the coastlines // before plot the image then the coastline , like this it should keep the proportion without cropping
 coastlines <- readOGR('ne_10m_coastline.shp')
 # coastlines_simp <- gSimplify(coastlines, tol = 3, topologyPreserve = TRUE)
 
@@ -23,15 +24,15 @@ ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax, where x=long & y=lat // ext 
 Coast_Crop <- crop(coastlines, ext) 
 plot(Coast_Crop, add = T) # the argument "add=T" is needed to add the coastlines on top of my current image
 
-cl <- colorRampPalette(c('lightblue','blues','white'))(100) # 
-cl <- choose_palett(name from the list)
+cl <- colorRampPalette(c('white', 'gray', 'darkgrey','lightblue','blue','purple'))(100) # 
+cl <- choose_palette(name from the list)
 
 
-plotRGB(p224r63_2011, r=4, g=3, b=2, stretch="Lin")
+plotRGB(Ic_Jan21_R, r=4, g=3, b=2, stretch="Lin")
 
-tjan21 <- raster("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc")
+IC_Jan21_R <- brick("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc") # when I need to add up the wave bands
 
-copNDVI <- reclassify(copNDVI, cbind(253:255, NA)) 
+IC_Jan21_R <- reclassify(IC_Jan21, cbind(253:255, NA)) 
 
 
 # https://www.r-bloggers.com/2018/10/the-av-package-production-quality-video-in-r/
