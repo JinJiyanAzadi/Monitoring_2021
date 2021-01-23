@@ -17,11 +17,11 @@ coastlines <- readOGR('ne_10m_coastline.shp')
 
 # We crop the coastlines to match our image
 # To do so we take the extent of the image then we crop it with the exact extent using the "ext" fixed argument
-ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax // ext is a fixed argument, we cannot change the name
+ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax, where x=long & y=lat // ext is a fixed argument, we cannot change the name
 
 # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
 Coast_Crop <- crop(coastlines, ext) 
-plot(coastlines, add = T) # the argument "add=T" is needed to add the coastlines on top of my current image
+plot(Coast_Crop, add = T) # the argument "add=T" is needed to add the coastlines on top of my current image
 
 cl <- colorRampPalette(c('lightblue','blues','white'))(100) # 
 cl <- choose_palett(name from the list)
