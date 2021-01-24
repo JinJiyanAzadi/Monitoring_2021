@@ -34,6 +34,8 @@ IC_Jan21_R <- brick("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc") # when I nee
 
 IC_Jan21_R <- reclassify(IC_Jan21, cbind(253:255, NA)) 
 
+library(MODISTools)
+
 
 # https://www.r-bloggers.com/2018/10/the-av-package-production-quality-video-in-r/
 # Library to plot the video, check BYS
