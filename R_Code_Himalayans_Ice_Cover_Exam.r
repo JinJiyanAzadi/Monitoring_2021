@@ -15,15 +15,27 @@ ALDH_Jan17 <- raster("c_gls_ALDH_201701030000_GLOBE_PROBAV_V1.5.1.nc")
 ALDH_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
 ALDH_Jan15 <- raster("c_gls_ALDH_201412240000_GLOBE_PROBAV_V1.5.1.nc")
 ALDH_Jan14 <- raster("c_gls_ALDH_201312240000_GLOBE_VGT_V1.4.1.nc")
-ALDH_Jan13 <- raster("")
+ALDH_Jan13 <- raster("c_gls_ALDH_201212240000_GLOBE_VGT_V1.4.1.nc")
 ALDH_Jan12 <- raster("")
-ALDH_Jan11 <- raster("")
-ALDH_Jan10 <- raster("")
+ALDH_Jan11 <- raster("c_gls_ALDH_201012240000_GLOBE_VGT_V1.4.1.nc")
+ALDH_Jan10 <- raster("c_gls_ALDH_200912240000_GLOBE_VGT_V1.4.1.nc")
 
 
-ALDH_10y <- stack() 
+ALDH_10yr <- stack(ALDH_Jan20, ALDH_Jan19, ALDH_Jan18, ALDH_Jan17, ALDH_Jan16, ALDH_Jan15, ALDH_Jan14, ALDH_Jan13, ALDH_Jan12, ALDH_Jan11, ALDH_Jan10) 
+
+# Now we crop the images to highlight the Himalayans 
+#
+
+ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax, where x=long & y=lat
+Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
+plot(Coast_Crop)
 
 
+
+sessionInfo() # to get the session info to be given to the public
+Sys.time() # to publish the time at which the script is done
+
+# Full script info @JinJiyanAzadi - github account to the following link: .....
 ###############################################################################################################
 
 plot(IC_Jan21) # we are not happy with the colours so we will change it but forst we add the coastlines
@@ -50,7 +62,7 @@ IC_Jan21_R <- brick("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc") # when I nee
 
 IC_Jan21_R <- reclassify(IC_Jan21, cbind(253:255, NA)) 
 
-library(MODISTools)
+library(MODISTools) # not req
 
 
 # https://www.r-bloggers.com/2018/10/the-av-package-production-quality-video-in-r/
@@ -59,7 +71,7 @@ library(MODISTools)
 
 difIce <-
 
-EN <- stack(EN01,EN02,EN03,EN04,EN05,EN06,EN07,EN08,EN09,EN10,EN11,EN12,EN13) 
+EN <- stack(EN01,EN02,EN03,EN04,EN05,EN06,EN07,EN08,EN09,EN10,EN11,EN12,EN13) # done  
 
 # Boxplot
 dev.off()
