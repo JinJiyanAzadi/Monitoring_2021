@@ -16,7 +16,7 @@ ALDH_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
 ALDH_Jan15 <- raster("c_gls_ALDH_201412240000_GLOBE_PROBAV_V1.5.1.nc")
 ALDH_Jan14 <- raster("c_gls_ALDH_201312240000_GLOBE_VGT_V1.4.1.nc")
 ALDH_Jan13 <- raster("c_gls_ALDH_201212240000_GLOBE_VGT_V1.4.1.nc")
-ALDH_Jan12 <- raster("")
+ALDH_Jan12 <- raster("c_gls_ALDH_201112240000_GLOBE_VGT_V1.4.1.nc")
 ALDH_Jan11 <- raster("c_gls_ALDH_201012240000_GLOBE_VGT_V1.4.1.nc")
 ALDH_Jan10 <- raster("c_gls_ALDH_200912240000_GLOBE_VGT_V1.4.1.nc")
 
