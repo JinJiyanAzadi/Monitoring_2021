@@ -6,7 +6,7 @@ library(rgdal) # coastlines
 library(ncdf4) # when using .nc files // the .nc format is the one related to the ESA data. This library will read these types of files
 library(clorspace) # to choose a set palette from the package
 
-setwd("D:/Utenti/Norma/Desktop/lab")
+setwd("D:/Utenti/Norma/Desktop/exam")
 
 ALDH_Jan20 <- raster("c_gls_ALDH_202001030000_GLOBE_PROBAV_V1.5.1.nc")
 ALDH_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc")
@@ -19,6 +19,10 @@ ALDH_Jan13 <- raster("")
 ALDH_Jan12 <- raster("")
 ALDH_Jan11 <- raster("")
 ALDH_Jan10 <- raster("")
+
+
+ALDH_10y <- stack() 
+
 
 ###############################################################################################################
 
