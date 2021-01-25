@@ -8,8 +8,20 @@ library(clorspace) # to choose a set palette from the package
 
 setwd("D:/Utenti/Norma/Desktop/lab")
 
-IC_Jan21 <- raster("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc")
-IC_Jan21 # to see the carachteristics of the data
+ALDH_Jan20 <- raster("c_gls_ALDH_202001030000_GLOBE_PROBAV_V1.5.1.nc")
+ALDH_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc")
+ALDH_Jan18 <- raster("c_gls_ALDH_201801030000_GLOBE_PROBAV_V1.5.1.nc")
+ALDH_Jan17 <- raster("c_gls_ALDH_201701030000_GLOBE_PROBAV_V1.5.1.nc")
+ALDH_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
+ALDH_Jan15 <- raster("c_gls_ALDH_201412240000_GLOBE_PROBAV_V1.5.1.nc")
+ALDH_Jan14 <- raster("c_gls_ALDH_201312240000_GLOBE_VGT_V1.4.1.nc")
+ALDH_Jan13 <- raster("")
+ALDH_Jan12 <- raster("")
+ALDH_Jan11 <- raster("")
+ALDH_Jan10 <- raster("")
+
+###############################################################################################################
+
 plot(IC_Jan21) # we are not happy with the colours so we will change it but forst we add the coastlines
 
 # Adding the coastlines // before plot the image then the coastline , like this it should keep the proportion without cropping
