@@ -36,6 +36,8 @@ sessionInfo() # to get the session info to be given to the public
 Sys.time() # to publish the time at which the script is done
 
 # Full script info @JinJiyanAzadi - github account to the following link: .....
+# Insert full data citation as per user guide
+# Include link to data page to see full description
 ###############################################################################################################
 
 plot(IC_Jan21) # we are not happy with the colours so we will change it but forst we add the coastlines
