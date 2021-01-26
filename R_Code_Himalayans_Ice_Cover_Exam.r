@@ -8,9 +8,9 @@ library(clorspace) # to choose a set palette from the package
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
-AL_Feb15 <- raster("")
-AL_Feb14 <- raster("")
-AL_Feb13 <- raster("")
+AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb13 <- raster("c_gls_ALDH_201301240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb12 <- raster("")
 AL_Feb11 <- raster("")
 AL_Feb10 <- raster("")
