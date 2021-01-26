@@ -2,7 +2,7 @@
 
 library(raster) # raster data i.e. images(pixels)
 library(RStoolbox) #  for remote sensing
-library(rgdal) # coastlines
+library(rgdal) # coastlines + in case of -hdf files from MODIS
 library(ncdf4) # when using .nc files // the .nc format is the one related to the ESA data. This library will read these types of files
 library(clorspace) # to choose a set palette from the package
 
