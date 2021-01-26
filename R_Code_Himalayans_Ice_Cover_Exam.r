@@ -8,20 +8,25 @@ library(clorspace) # to choose a set palette from the package
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
-AL_Jan20 <- raster("c_gls_ALDH_202001030000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc") # ricontrolla il file quality
-AL_Jan18 <- raster("c_gls_ALDH_201801030000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Jan17 <- raster("c_gls_ALDH_201701030000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Jan15 <- raster("c_gls_ALDH_201412240000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Jan14 <- raster("c_gls_ALDH_201312240000_GLOBE_VGT_V1.4.1.nc")
-AL_Jan13 <- raster("c_gls_ALDH_201212240000_GLOBE_VGT_V1.4.1.nc")
-AL_Jan12 <- raster("c_gls_ALDH_201112240000_GLOBE_VGT_V1.4.1.nc")
-AL_Jan11 <- raster("c_gls_ALDH_201012240000_GLOBE_VGT_V1.4.1.nc")
-AL_Jan10 <- raster("c_gls_ALDH_200912240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb15 <- raster("")
+AL_Feb14 <- raster("")
+AL_Feb13 <- raster("")
+AL_Feb12 <- raster("")
+AL_Feb11 <- raster("")
+AL_Feb10 <- raster("")
+AL_Feb09 <- raster("")
+AL_Feb08 <- raster("")
+AL_Feb07 <- raster("")
+AL_Feb06 <- raster("")
+AL_Feb05 <- raster("")
+AL_Feb04 <- raster("")
+AL_Feb03 <- raster("")
+AL_Feb02 <- raster("")
+AL_Feb01 <- raster("")
+AL_Feb00 <- raster("")
 
 
-ALDH_10yr <- stack(ALDH_Jan20, ALDH_Jan19, ALDH_Jan18, ALDH_Jan17, ALDH_Jan16, ALDH_Jan15, ALDH_Jan14, ALDH_Jan13, ALDH_Jan12, ALDH_Jan11, ALDH_Jan10) 
+ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
 # Now we crop the images to highlight the Himalayans 
 #
