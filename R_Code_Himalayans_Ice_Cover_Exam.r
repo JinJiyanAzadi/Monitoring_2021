@@ -2,9 +2,10 @@
 
 library(raster) # raster data i.e. images(pixels)
 library(RStoolbox) #  for remote sensing
-library(rgdal) # coastlines + in case of -hdf files from MODIS
-library(ncdf4) # when using .nc files // the .nc format is the one related to the ESA data. This library will read these types of files
-library(clorspace) # to choose a set palette from the package
+library(rgdal) # for .hdf files from MODIS
+library(ncdf4) # for .nc files 
+library(clorspace) # to choose a set palette from the package // # not req for now
+library(MODISTools) # not req for now
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
@@ -34,6 +35,11 @@ AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 
 cl <-
 
+# Now we crop the images to highlight the Himalayas: Try to crop a stack to save some time
+ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax, where x=long & y=lat
+Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
+plot(Coast_Crop)
+
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
 
@@ -57,16 +63,7 @@ cldif <-
 Dif_Ice <- Mosaic_Elv_00_16 - Mosaic_Elv_75_00 # nn funziona
 
 
-
-
-# Now we crop the images to highlight the Himalayans 
-#
-
-ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax, where x=long & y=lat
-Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
-plot(Coast_Crop)
-
-
+############
 
 sessionInfo() # to get the session info to be given to the public
 Sys.time() # to publish the time at which the script is done
@@ -75,12 +72,6 @@ Sys.time() # to publish the time at which the script is done
 # Insert full data citation as per user guide
 # Include link to data page to see full description
 ###############################################################################################################
-
-plot(IC_Jan21) # we are not happy with the colours so we will change it but forst we add the coastlines
-
-# Adding the coastlines // before plot the image then the coastline , like this it should keep the proportion without cropping
-coastlines <- readOGR('ne_10m_coastline.shp')
-# coastlines_simp <- gSimplify(coastlines, tol = 3, topologyPreserve = TRUE)
 
 # We crop the coastlines to match our image
 # To do so we take the extent of the image then we crop it with the exact extent using the "ext" fixed argument
@@ -93,16 +84,11 @@ plot(Coast_Crop, add = T) # the argument "add=T" is needed to add the coastlines
 cl <- colorRampPalette(c('white', 'gray', 'darkgrey','lightblue','blue','purple'))(100) # 
 cl <- choose_palette(name from the list)
 
-
 plotRGB(Ic_Jan21_R, r=4, g=3, b=2, stretch="Lin")
 
 IC_Jan21_R <- brick("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc") # when I need to add up the wave bands
 
 IC_Jan21_R <- reclassify(IC_Jan21, cbind(253:255, NA)) 
-
-library(MODISTools) # not req
-
-
 
 
 # Boxplot
