@@ -10,6 +10,11 @@ setwd("D:/Utenti/Norma/Desktop/exam")
 
 # Exercise one: raster the albedo for 15yr, crop the image, create a video
 
+# Albedo - Directional Albedo 1km Global V1 - datset from Copernicus
+# https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;
+# Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;
+# ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
+
 AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
 AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb13 <- raster("c_gls_ALDH_201301240000_GLOBE_VGT_V1.4.1.nc")
@@ -36,13 +41,20 @@ ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, A
 # https://www.r-bloggers.com/2018/10/the-av-package-production-quality-video-in-r/
 # Library to plot the video, check BYS
 
-# Exercise two: Mosaic of glaciers and their differences oer time
+# Exercise two: Mosaic of glaciers and their differences over time
+
+# This data set contains thickness change mosaics that include approximately 650 Himalayan glaciers between 1975 and 2000, and 1040 Himalayan glaciers between 2000 and 2016. 
+# The data were derived from HEXAGON KH-9 and ASTER digital elevation models (DEMs), by fitting robust linear trends to time series of elevation pixels 
+# over the glacier surfaces.
+# National SNow & Ice data center - NASA
+# https://nsidc.org/data/HMA_Glacier_dH_Mosaics/versions/1
+
 Mosaic_Elv_00_16 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_2000-2016.tif")
-Mosaic_ELv_75_00 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_1975-2000.tif")
+Mosaic_Elv_75_00 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_1975-2000.tif")
 
 cldif <-
 
-Dif_Ice <- Mosaic_Elv_00_16 - Mosaic_ELv_75_00
+Dif_Ice <- Mosaic_Elv_00_16 - Mosaic_Elv_75_00 # nn funziona
 
 
 
