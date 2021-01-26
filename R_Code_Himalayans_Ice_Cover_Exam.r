@@ -8,25 +8,44 @@ library(clorspace) # to choose a set palette from the package
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
+# Exercise one: raster the albedo for 15yr, crop the image, create a video
+
 AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
 AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb13 <- raster("c_gls_ALDH_201301240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb12 <- raster("")
-AL_Feb11 <- raster("")
-AL_Feb10 <- raster("")
-AL_Feb09 <- raster("")
-AL_Feb08 <- raster("")
-AL_Feb07 <- raster("")
-AL_Feb06 <- raster("")
-AL_Feb05 <- raster("")
-AL_Feb04 <- raster("")
-AL_Feb03 <- raster("")
-AL_Feb02 <- raster("")
-AL_Feb01 <- raster("")
-AL_Feb00 <- raster("")
+AL_Feb12 <- raster("c_gls_ALDH_201201240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb11 <- raster("c_gls_ALDH_201101240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb10 <- raster("c_gls_ALDH_201001240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb09 <- raster("c_gls_ALDH_200901240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb08 <- raster("c_gls_ALDH_200801240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb07 <- raster("c_gls_ALDH_200701240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb06 <- raster("c_gls_ALDH_200601240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb05 <- raster("c_gls_ALDH_200501240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb04 <- raster("c_gls_ALDH_200401240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb03 <- raster("c_gls_ALDH_200301240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 
+cl <-
 
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
+
+
+
+# https://www.r-bloggers.com/2018/10/the-av-package-production-quality-video-in-r/
+# Library to plot the video, check BYS
+
+# Exercise two: Mosaic of glaciers and their differences oer time
+Mosaic_Elv_00_16 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_2000-2016.tif")
+Mosaic_ELv_75_00 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_1975-2000.tif")
+
+cldif <-
+
+Dif_Ice <- Mosaic_Elv_00_16 - Mosaic_ELv_75_00
+
+
+
 
 # Now we crop the images to highlight the Himalayans 
 #
@@ -72,13 +91,7 @@ IC_Jan21_R <- reclassify(IC_Jan21, cbind(253:255, NA))
 library(MODISTools) # not req
 
 
-# https://www.r-bloggers.com/2018/10/the-av-package-production-quality-video-in-r/
-# Library to plot the video, check BYS
 
-
-difIce <-
-
-EN <- stack(EN01,EN02,EN03,EN04,EN05,EN06,EN07,EN08,EN09,EN10,EN11,EN12,EN13) # done  
 
 # Boxplot
 dev.off()
