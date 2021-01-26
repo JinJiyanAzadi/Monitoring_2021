@@ -9,7 +9,7 @@ library(clorspace) # to choose a set palette from the package
 setwd("D:/Utenti/Norma/Desktop/exam")
 
 AL_Jan20 <- raster("c_gls_ALDH_202001030000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc") # ricontrolla il file quality
 AL_Jan18 <- raster("c_gls_ALDH_201801030000_GLOBE_PROBAV_V1.5.1.nc")
 AL_Jan17 <- raster("c_gls_ALDH_201701030000_GLOBE_PROBAV_V1.5.1.nc")
 AL_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
