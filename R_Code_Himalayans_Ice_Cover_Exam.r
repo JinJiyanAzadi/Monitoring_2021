@@ -8,17 +8,17 @@ library(clorspace) # to choose a set palette from the package
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
-ALDH_Jan20 <- raster("c_gls_ALDH_202001030000_GLOBE_PROBAV_V1.5.1.nc")
-ALDH_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc")
-ALDH_Jan18 <- raster("c_gls_ALDH_201801030000_GLOBE_PROBAV_V1.5.1.nc")
-ALDH_Jan17 <- raster("c_gls_ALDH_201701030000_GLOBE_PROBAV_V1.5.1.nc")
-ALDH_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
-ALDH_Jan15 <- raster("c_gls_ALDH_201412240000_GLOBE_PROBAV_V1.5.1.nc")
-ALDH_Jan14 <- raster("c_gls_ALDH_201312240000_GLOBE_VGT_V1.4.1.nc")
-ALDH_Jan13 <- raster("c_gls_ALDH_201212240000_GLOBE_VGT_V1.4.1.nc")
-ALDH_Jan12 <- raster("c_gls_ALDH_201112240000_GLOBE_VGT_V1.4.1.nc")
-ALDH_Jan11 <- raster("c_gls_ALDH_201012240000_GLOBE_VGT_V1.4.1.nc")
-ALDH_Jan10 <- raster("c_gls_ALDH_200912240000_GLOBE_VGT_V1.4.1.nc")
+AL_Jan20 <- raster("c_gls_ALDH_202001030000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan19 <- raster("c_gls_ALDH_201901030000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan18 <- raster("c_gls_ALDH_201801030000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan17 <- raster("c_gls_ALDH_201701030000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan16 <- raster("c_gls_ALDH_201512240000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan15 <- raster("c_gls_ALDH_201412240000_GLOBE_PROBAV_V1.5.1.nc")
+AL_Jan14 <- raster("c_gls_ALDH_201312240000_GLOBE_VGT_V1.4.1.nc")
+AL_Jan13 <- raster("c_gls_ALDH_201212240000_GLOBE_VGT_V1.4.1.nc")
+AL_Jan12 <- raster("c_gls_ALDH_201112240000_GLOBE_VGT_V1.4.1.nc")
+AL_Jan11 <- raster("c_gls_ALDH_201012240000_GLOBE_VGT_V1.4.1.nc")
+AL_Jan10 <- raster("c_gls_ALDH_200912240000_GLOBE_VGT_V1.4.1.nc")
 
 
 ALDH_10yr <- stack(ALDH_Jan20, ALDH_Jan19, ALDH_Jan18, ALDH_Jan17, ALDH_Jan16, ALDH_Jan15, ALDH_Jan14, ALDH_Jan13, ALDH_Jan12, ALDH_Jan11, ALDH_Jan10) 
