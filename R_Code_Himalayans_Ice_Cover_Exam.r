@@ -7,6 +7,7 @@ library(ncdf4) # for .nc files
 library(clorspace) # to choose a set palette from the package // # not req for now
 library(MODISTools) # not req for now
 library(h5) # to opean .hdf files from MODIS
+library(gdalUtils)
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
