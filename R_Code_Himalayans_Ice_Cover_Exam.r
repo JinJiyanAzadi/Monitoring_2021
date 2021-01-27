@@ -6,6 +6,7 @@ library(rgdal) # for .hdf files from MODIS
 library(ncdf4) # for .nc files 
 library(clorspace) # to choose a set palette from the package // # not req for now
 library(MODISTools) # not req for now
+library(h5) # to opean .hdf files from MODIS
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
@@ -41,6 +42,8 @@ Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is 
 plot(Coast_Crop)
 
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
+
+
 
 
 
