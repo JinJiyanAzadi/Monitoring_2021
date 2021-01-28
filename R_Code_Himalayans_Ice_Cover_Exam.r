@@ -13,10 +13,8 @@ setwd("D:/Utenti/Norma/Desktop/exam")
 
 # Exercise one: raster the albedo for 15yr, crop the image, create a video
 
-# Albedo - Directional Albedo 1km Global V1 - datset from Copernicus
-# https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;
-# Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;
-# ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
+# Albedo - Directional Albedo 1km Global V1 - datset from Copernicus, link below:
+# https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
 
 AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
 AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
@@ -35,18 +33,20 @@ AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 
-cl <-
-
-# Now we crop the images to highlight the Himalayas: Try to crop a stack to save some time
-ext <- c(-180, 180, 25, 84)  # xmin xmax ymin ymax, where x=long & y=lat
-Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
-plot(Coast_Crop)
-
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
+
+
+# Now we crop the images to highlight the Himalayas: Try to crop a stack to save some time
+ext <- c(61,103,26,41) # xmin xmax ymin ymax, where x=long & y=lat
+  
+Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
+
+cl <-
+plot(Coast_Crop)
 pairs(ALDH_15yr)
 
-ext <- c(63,103,26,41)
+
 trial <- crop(albedo, ext) # trial with the stack then crop all in once --> OK!
 
 cl <- colorRampPalette(c('white','lightblue','blue','red', 'purple'))(100)
