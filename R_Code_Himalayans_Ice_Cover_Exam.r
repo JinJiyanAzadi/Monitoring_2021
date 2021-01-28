@@ -33,21 +33,19 @@ AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 
+# We stack the images together to ease the cropping and plottig procedeures
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
-
-
-# Now we crop the images to highlight the Himalayas: Try to crop a stack to save some time
+# We set the coordinates for the cropping
 ext <- c(61,103,26,41) # xmin xmax ymin ymax, where x=long & y=lat
   
-Coast_Crop <- crop(coastlines, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
+# We crop the images to highlight the Himalayas
+ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
 
 cl <-
-plot(Coast_Crop)
-pairs(ALDH_15yr)
+plot(ALDH_15yr_c)
+pairs(ALDH_15yr_c)
 
-
-trial <- crop(albedo, ext) # trial with the stack then crop all in once --> OK!
 
 cl <- colorRampPalette(c('white','lightblue','blue','red', 'purple'))(100)
 plot(trial, col=cl)
