@@ -44,6 +44,13 @@ plot(Coast_Crop)
 
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
+pairs(ALDH_15yr)
+
+ext <- c(63,103,26,41)
+trial <- crop(albedo, ext) # trial with the stack then crop all in once --> OK!
+
+cl <- colorRampPalette(c('white','lightblue','blue','red', 'purple'))(100)
+plot(trial, col=cl)
 
 
 
