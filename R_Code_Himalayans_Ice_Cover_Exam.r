@@ -2,11 +2,10 @@
 
 library(raster) # raster data i.e. images(pixels)
 library(RStoolbox) #  for remote sensing
-library(rgdal) # for .hdf files from MODIS
+library(rgdal) # for .hdf files from MODIS + I had to install the "OSge 4w" software
 library(ncdf4) # for .nc files 
-library(colorspace) # to choose a set palette from the package // # not req for now
+library(colorspace) # to choose a set palette from the package
 library(MODISTools) # not req for now
-library(h5) # to opean .hdf files from MODIS
 library(gdalUtils)
 
 setwd("D:/Utenti/Norma/Desktop/exam")
@@ -37,18 +36,22 @@ AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
 # We set the coordinates for the cropping
-ext <- c(61,103,26,41) # xmin xmax ymin ymax, where x=long & y=lat
+ext <- c(62,104,27,38) # xmin xmax ymin ymax, where x=long & y=lat
   
 # We crop the images to highlight the Himalayas
 ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
 
-cl <-
-plot(ALDH_15yr_c)
+pal <- choose_palette()
+pal(30)
+[1] "#D2EEEA" "#C7EBE7" "#BFE8E4" "#B7E3E0" "#B0DFDD" "#A9DAD9" "#A1D5D5" "#9AD0D2" "#93CBCE" "#8CC6CA" "#85C1C7" "#7FBCC3" "#78B6BF" "#71B1BB"
+[15] "#6BABB8" "#64A6B4" "#5EA1B0" "#579BAC" "#5195A9" "#4B90A5" "#448AA1" "#3E859D" "#3A7F99" "#387994" "#36738F" "#346D8A" "#316785" "#2F6280"
+[29] "#2D5C7B" "#2A5676"
+plot(ALDH_15yr_c, col=pal(30))
+
 pairs(ALDH_15yr_c)
 
 
-cl <- colorRampPalette(c('white','lightblue','blue','red', 'purple'))(100)
-plot(trial, col=cl)
+cl <- colorRampPalette(c('white','lightblue','blue','yellow', 'purple'))(100)
 
 
 
