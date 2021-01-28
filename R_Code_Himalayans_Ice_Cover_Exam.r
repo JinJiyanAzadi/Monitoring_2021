@@ -4,7 +4,7 @@ library(raster) # raster data i.e. images(pixels)
 library(RStoolbox) #  for remote sensing
 library(rgdal) # for .hdf files from MODIS
 library(ncdf4) # for .nc files 
-library(clorspace) # to choose a set palette from the package // # not req for now
+library(colorspace) # to choose a set palette from the package // # not req for now
 library(MODISTools) # not req for now
 library(h5) # to opean .hdf files from MODIS
 library(gdalUtils)
