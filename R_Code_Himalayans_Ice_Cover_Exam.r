@@ -41,17 +41,21 @@ ext <- c(62,104,27,38) # xmin xmax ymin ymax, where x=long & y=lat
 # We crop the images to highlight the Himalayas
 ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
 
-pal <- choose_palette()
-pal(30)
-[1] "#D2EEEA" "#C7EBE7" "#BFE8E4" "#B7E3E0" "#B0DFDD" "#A9DAD9" "#A1D5D5" "#9AD0D2" "#93CBCE" "#8CC6CA" "#85C1C7" "#7FBCC3" "#78B6BF" "#71B1BB"
-[15] "#6BABB8" "#64A6B4" "#5EA1B0" "#579BAC" "#5195A9" "#4B90A5" "#448AA1" "#3E859D" "#3A7F99" "#387994" "#36738F" "#346D8A" "#316785" "#2F6280"
-[29] "#2D5C7B" "#2A5676"
-plot(ALDH_15yr_c, col=pal(30))
+pal <- choose_palette(#Advanced-Sequential-Multi-hue-la quarte da dx + reverse colours)
+pal(50)
+[1] "#1D0B14" "#320B20" "#3E0D26" "#48102B" "#51142F" "#5A1733" "#621B36" "#6A1F39" "#72233C" "#79283D" "#812C3F" "#883040" "#8F3540" "#963A41"
+[15] "#9C3E40" "#A3433F" "#A9483E" "#AF4D3C" "#B55239" "#BB5735" "#C05C30" "#C6622A" "#CB6721" "#D06D13" "#D47200" "#D77800" "#D97F00" "#DB860F"
+[29] "#DC8C1B" "#DE9226" "#DF992F" "#E19F38" "#E2A540" "#E3AB48" "#E5B151" "#E6B759" "#E7BC61" "#E8C269" "#EAC871" "#EBCD79" "#ECD381" "#EDD889"
+[43] "#EFDD91" "#F0E399" "#F2E8A1" "#F4EDA9" "#F5F2B1" "#F7F7B9" "#FAFCC1" "#FCFFC9"
+
+plot(ALDH_15yr_c, col=pal(50))
 
 pairs(ALDH_15yr_c)
 
+cl <- colorRampPalette(c('orangered4', 'salmon3', 'yellow', 'lightblue', 'royalblue1'))(100) # preferito
+cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','orangered4'))(100) # preferito --> MIGLIORE
 
-cl <- colorRampPalette(c('white','lightblue','blue','yellow', 'purple'))(100)
+
 
 
 
@@ -70,9 +74,10 @@ cl <- colorRampPalette(c('white','lightblue','blue','yellow', 'purple'))(100)
 Mosaic_Elv_00_16 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_2000-2016.tif")
 Mosaic_Elv_75_00 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_1975-2000.tif")
 
-cldif <-
+
 
 Dif_Ice <- Mosaic_Elv_00_16 - Mosaic_Elv_75_00 # nn funziona
+cldif <-
 
 
 ############
