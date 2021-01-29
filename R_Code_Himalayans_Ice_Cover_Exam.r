@@ -52,7 +52,7 @@ AL_Feb00_c <- crop(AL_Feb00, ext)
 # We stack the images together to ease the cropping and plottig procedeures
 ALDH_15yr <- stack(AL_Feb15_c, AL_Feb14_c, AL_Feb13_c, AL_Feb12_c, AL_Feb11_c, AL_Feb10_c, AL_Feb09_c, AL_Feb08_c, AL_Feb07_c, AL_Feb06_c, AL_Feb05_c, AL_Feb04_c, AL_Feb03_c, AL_Feb02_c, AL_Feb01_c, AL_Feb00_c) 
 
-par(mfrow=c(2,8))
+par(mfrow=c(2,8)) 
 plot(AL_Feb15_c, main="Feb_15", col=cl)
 plot(AL_Feb14_c, main="Feb_14", col=cl)
 plot(AL_Feb13_c, main="Feb_13", col=cl)
