@@ -35,6 +35,25 @@ AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 # We stack the images together to ease the cropping and plottig procedeures
 ALDH_15yr <- stack(AL_Feb15, AL_Feb14, AL_Feb13, AL_Feb12, AL_Feb11, AL_Feb10, AL_Feb09, AL_Feb08, AL_Feb07, AL_Feb06, AL_Feb05, AL_Feb04, AL_Feb03, AL_Feb02, AL_Feb01, AL_Feb00) 
 
+par(mfrow=c(5,3)
+plot(AL_Feb15, main="Feb_15")
+plot(AL_Feb14, main="Feb_14")
+plot(AL_Feb13, main="Feb_13")
+plot(AL_Feb12, main="Feb_12")
+plot(AL_Feb11, main="Feb_11")
+plot(AL_Feb10, main="Feb_10")
+plot(AL_Feb09, main="Feb_09")
+plot(AL_Feb08, main="Feb_08")
+plot(AL_Feb07, main="Feb_07")
+plot(AL_Feb06, main="Feb_06")
+plot(AL_Feb05, main="Feb_05")
+plot(AL_Feb04, main="Feb_04")
+plot(AL_Feb03, main="Feb_03")
+plot(AL_Feb02, main="Feb_02")
+plot(AL_Feb01, main="Feb_01")
+plot(AL_Feb00, main="Feb_00")
+    
+    
 # We set the coordinates for the cropping
 ext <- c(62,104,27,38) # xmin xmax ymin ymax, where x=long & y=lat
   
