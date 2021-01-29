@@ -32,6 +32,9 @@ AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 
+# We set the coordinates for the cropping
+ext <- c(62,104,27,38) # xmin xmax ymin ymax, where x=long & y=lat
+
 AL_Feb15_c <- crop(AL_Feb15, ext)
 AL_Feb14_c <- crop(AL_Feb14, ext)
 AL_Feb13_c <- crop(AL_Feb13, ext)
@@ -49,8 +52,14 @@ AL_Feb02_c <- crop(AL_Feb02, ext)
 AL_Feb01_c <- crop(AL_Feb01, ext)
 AL_Feb00_c <- crop(AL_Feb00, ext)
 
-# We stack the images together to ease the cropping and plottig procedeures
+(# We stack the images together to ease the cropping and plottig procedeures
 ALDH_15yr <- stack(AL_Feb15_c, AL_Feb14_c, AL_Feb13_c, AL_Feb12_c, AL_Feb11_c, AL_Feb10_c, AL_Feb09_c, AL_Feb08_c, AL_Feb07_c, AL_Feb06_c, AL_Feb05_c, AL_Feb04_c, AL_Feb03_c, AL_Feb02_c, AL_Feb01_c, AL_Feb00_c) 
+
+# We crop the images to highlight the Himalayas
+ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext")
+
+    
+cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','orangered4'))(100) # preferito --> MIGLIORE
 
 par(mfrow=c(3,2)) 
 plot(AL_Feb15_c, main="Feb_15", col=cl)
@@ -72,12 +81,10 @@ plot(AL_Feb02_c, main="Feb_02", col=cl)
 plot(AL_Feb01_c, main="Feb_01", col=cl)
 plot(AL_Feb00_c, main="Feb_00", col=cl)
     
-    
-# We set the coordinates for the cropping
-ext <- c(62,104,27,38) # xmin xmax ymin ymax, where x=long & y=lat
-  
-# We crop the images to highlight the Himalayas
-ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
+
+cldif <- colorRampPalette(c('orangered4', 'blue', 'yellow', 'red', 'brown'))(100)
+dif <- AL_Feb00_c - AL_Feb15
+
 
 pal <- choose_palette(#Advanced-Sequential-Multi-hue-la quarte da dx + reverse colours)
 pal(50)
@@ -88,10 +95,9 @@ pal(50)
 
 plot(ALDH_15yr_c, col=pal(50))
 
-pairs(ALDH_15yr_c)
 
 cl <- colorRampPalette(c('orangered4', 'salmon3', 'yellow', 'lightblue', 'royalblue1'))(100) # preferito
-cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','orangered4'))(100) # preferito --> MIGLIORE
+
 
 
 
@@ -111,12 +117,6 @@ cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','o
 
 Mosaic_Elv_00_16 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_2000-2016.tif")
 Mosaic_Elv_75_00 <- raster("HMA_Glacier_dH_Mosaics_elevationTrend_1975-2000.tif")
-
-
-
-Dif_Ice <- Mosaic_Elv_00_16 - Mosaic_Elv_75_00 # nn funziona
-cldif <-
-
 
 ############
 
