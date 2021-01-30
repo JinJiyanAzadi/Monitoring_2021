@@ -15,51 +15,53 @@ setwd("D:/Utenti/Norma/Desktop/exam")
 # Albedo - Directional Albedo 1km Global V1 - datset from Copernicus, link below:
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
 
-AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
-AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb13 <- raster("c_gls_ALDH_201301240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb12 <- raster("c_gls_ALDH_201201240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb11 <- raster("c_gls_ALDH_201101240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb10 <- raster("c_gls_ALDH_201001240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb09 <- raster("c_gls_ALDH_200901240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb08 <- raster("c_gls_ALDH_200801240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb07 <- raster("c_gls_ALDH_200701240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb06 <- raster("c_gls_ALDH_200601240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb05 <- raster("c_gls_ALDH_200501240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb04 <- raster("c_gls_ALDH_200401240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb03 <- raster("c_gls_ALDH_200301240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
-AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb03 <- raster("c_gls_ALDH_200301240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb04 <- raster("c_gls_ALDH_200401240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb05 <- raster("c_gls_ALDH_200501240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb06 <- raster("c_gls_ALDH_200601240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb07 <- raster("c_gls_ALDH_200701240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb08 <- raster("c_gls_ALDH_200801240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb09 <- raster("c_gls_ALDH_200901240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb10 <- raster("c_gls_ALDH_201001240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb11 <- raster("c_gls_ALDH_201101240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb12 <- raster("c_gls_ALDH_201201240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb13 <- raster("c_gls_ALDH_201301240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
+AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
+
+
 
 # We set the coordinates for the cropping, to highlight the HinduKush–Karakoram–Himalaya (HKH) areas as the raster image is at a global scale
 ext <- c(68,96,26,38) # xmin xmax ymin ymax, where x=long & y=lat
 
 
 # We create the cropped image for each observed year
-AL_Feb15_c <- crop(AL_Feb15, ext)
-AL_Feb14_c <- crop(AL_Feb14, ext)
-AL_Feb13_c <- crop(AL_Feb13, ext)
-AL_Feb12_c <- crop(AL_Feb12, ext)
-AL_Feb11_c <- crop(AL_Feb11, ext)
-AL_Feb10_c <- crop(AL_Feb10, ext)
-AL_Feb09_c <- crop(AL_Feb09, ext)
-AL_Feb08_c <- crop(AL_Feb08, ext)
-AL_Feb07_c <- crop(AL_Feb07, ext)
-AL_Feb06_c <- crop(AL_Feb06, ext)
-AL_Feb05_c <- crop(AL_Feb05, ext)
-AL_Feb04_c <- crop(AL_Feb04, ext)
-AL_Feb03_c <- crop(AL_Feb03, ext)
-AL_Feb02_c <- crop(AL_Feb02, ext)
-AL_Feb01_c <- crop(AL_Feb01, ext)
 AL_Feb00_c <- crop(AL_Feb00, ext)
+AL_Feb01_c <- crop(AL_Feb01, ext)
+AL_Feb02_c <- crop(AL_Feb02, ext)
+AL_Feb03_c <- crop(AL_Feb03, ext)
+AL_Feb04_c <- crop(AL_Feb04, ext)
+AL_Feb05_c <- crop(AL_Feb05, ext)
+AL_Feb06_c <- crop(AL_Feb06, ext)
+AL_Feb07_c <- crop(AL_Feb07, ext)
+AL_Feb08_c <- crop(AL_Feb08, ext)
+AL_Feb09_c <- crop(AL_Feb09, ext)
+AL_Feb10_c <- crop(AL_Feb10, ext)
+AL_Feb11_c <- crop(AL_Feb11, ext)
+AL_Feb12_c <- crop(AL_Feb12, ext)
+AL_Feb13_c <- crop(AL_Feb13, ext)
+AL_Feb14_c <- crop(AL_Feb14, ext)
+AL_Feb15_c <- crop(AL_Feb15, ext)
 
 # We stack the images together to do a boxplot to get the annual mean value
-ALDH_15yr_c <- stack(AL_Feb15_c, AL_Feb14_c, AL_Feb13_c, AL_Feb12_c, AL_Feb11_c, AL_Feb10_c, AL_Feb09_c, AL_Feb08_c, AL_Feb07_c, AL_Feb06_c, AL_Feb05_c, AL_Feb04_c, AL_Feb03_c, AL_Feb02_c, AL_Feb01_c, AL_Feb00_c) 
+ALDH_15yr_c <- stack(AL_Feb00_c, AL_Feb01_c, AL_Feb02_c,  AL_Feb03_c, AL_Feb04_c, AL_Feb05_c, AL_Feb06_c, AL_Feb07_c, AL_Feb08_c, AL_Feb09_c, AL_Feb10_c,  AL_Feb11_c,  AL_Feb12_c, AL_Feb13_c, AL_Feb14_c, AL_Feb15_c)
     
 # Boxplot
 dev.off()
-boxplot(ALDH_15yr_c, horizontal=T, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab= "NULL")
+boxplot(ALDH_15yr_c, horizontal=T, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation")
 # Need to fix the labeling
 
 #Try the line variation among the most diverse year 
@@ -71,24 +73,24 @@ cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','o
 
 # We plot the images in two rounds to allow showing the label on each image 
 par(mfrow=c(3,4)) 
-plot(AL_Feb15_c, main="Feb_15", col=cl)
-plot(AL_Feb14_c, main="Feb_14", col=cl)
-plot(AL_Feb13_c, main="Feb_13", col=cl)
-plot(AL_Feb12_c, main="Feb_12", col=cl)
-plot(AL_Feb11_c, main="Feb_11", col=cl)
-plot(AL_Feb10_c, main="Feb_10", col=cl)
-plot(AL_Feb09_c, main="Feb_09", col=cl)
-plot(AL_Feb08_c, main="Feb_08", col=cl)
+plot(AL_Feb00_c, main="Feb_00", col=cl)
+plot(AL_Feb01_c, main="Feb_01", col=cl)
+plot(AL_Feb02_c, main="Feb_02", col=cl)
+plot(AL_Feb03_c, main="Feb_03", col=cl)
+plot(AL_Feb04_c, main="Feb_04", col=cl)
+plot(AL_Feb05_c, main="Feb_05", col=cl)
+plot(AL_Feb06_c, main="Feb_06", col=cl)
+plot(AL_Feb07_c, main="Feb_07", col=cl)
 
 par(mfrow=c(3,4)) 
-plot(AL_Feb07_c, main="Feb_07", col=cl)
-plot(AL_Feb06_c, main="Feb_06", col=cl)
-plot(AL_Feb05_c, main="Feb_05", col=cl)
-plot(AL_Feb04_c, main="Feb_04", col=cl)
-plot(AL_Feb03_c, main="Feb_03", col=cl)
-plot(AL_Feb02_c, main="Feb_02", col=cl)
-plot(AL_Feb01_c, main="Feb_01", col=cl)
-plot(AL_Feb00_c, main="Feb_00", col=cl)
+plot(AL_Feb08_c, main="Feb_08", col=cl)
+plot(AL_Feb09_c, main="Feb_09", col=cl)
+plot(AL_Feb10_c, main="Feb_10", col=cl)
+plot(AL_Feb11_c, main="Feb_11", col=cl)
+plot(AL_Feb12_c, main="Feb_12", col=cl)
+plot(AL_Feb13_c, main="Feb_13", col=cl)
+plot(AL_Feb14_c, main="Feb_14", col=cl)
+plot(AL_Feb15_c, main="Feb_15", col=cl)
     
 
 -----------------
