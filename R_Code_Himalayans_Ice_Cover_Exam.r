@@ -10,7 +10,7 @@ library(gdalUtils)
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
-# Exercise one: raster the albedo for 15yr, crop the image, create a video
+# Raster the albedo for 15yr period 2000-2015
 
 # Albedo - Directional Albedo 1km Global V1 - datset from Copernicus, link below:
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
@@ -32,9 +32,11 @@ AL_Feb02 <- raster("c_gls_ALDH_200201240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb01 <- raster("c_gls_ALDH_200101240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb00 <- raster("c_gls_ALDH_200001240000_GLOBE_VGT_V1.4.1.nc")
 
-# We set the coordinates for the cropping
+# We set the coordinates for the cropping, to highlight the HinduKush–Karakoram–Himalaya (HKH) areas as the raster image is at a global scale
 ext <- c(62,104,27,38) # xmin xmax ymin ymax, where x=long & y=lat
 
+
+# We create the cropped image for each observed year
 AL_Feb15_c <- crop(AL_Feb15, ext)
 AL_Feb14_c <- crop(AL_Feb14, ext)
 AL_Feb13_c <- crop(AL_Feb13, ext)
@@ -52,11 +54,8 @@ AL_Feb02_c <- crop(AL_Feb02, ext)
 AL_Feb01_c <- crop(AL_Feb01, ext)
 AL_Feb00_c <- crop(AL_Feb00, ext)
 
-# We stack the images together to do a boxplot for the yearly mean value
+# We stack the images together to do a boxplot to get the annual mean value
 ALDH_15yr <- stack(AL_Feb15_c, AL_Feb14_c, AL_Feb13_c, AL_Feb12_c, AL_Feb11_c, AL_Feb10_c, AL_Feb09_c, AL_Feb08_c, AL_Feb07_c, AL_Feb06_c, AL_Feb05_c, AL_Feb04_c, AL_Feb03_c, AL_Feb02_c, AL_Feb01_c, AL_Feb00_c) 
-
-# We crop the images to highlight the Himalayas
-ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
     
 # Boxplot
 dev.off()
@@ -66,9 +65,11 @@ boxplot(ALDH_15yr_c, horizontal=T, axis=T, outline=F, col="royalblue", main="Ann
 #Try the line variation among the most diverse year 
 
 
-    
+# We set the colours palette for the plotting   
 cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','orangered4'))(100) # preferito --> MIGLIORE
 
+
+# We plot the images in two rounds to allow showing the label on each image 
 par(mfrow=c(3,2)) 
 plot(AL_Feb15_c, main="Feb_15", col=cl)
 plot(AL_Feb14_c, main="Feb_14", col=cl)
@@ -90,6 +91,7 @@ plot(AL_Feb01_c, main="Feb_01", col=cl)
 plot(AL_Feb00_c, main="Feb_00", col=cl)
     
 
+-----------------
 cldif <- colorRampPalette(c('orangered4', 'blue', 'yellow', 'red', 'brown'))(100)
 dif <- AL_Feb00_c - AL_Feb15
 
