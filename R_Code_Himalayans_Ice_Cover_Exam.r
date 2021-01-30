@@ -70,7 +70,7 @@ cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','o
 
 
 # We plot the images in two rounds to allow showing the label on each image 
-par(mfrow=c(3,2)) 
+par(mfrow=c(3,4)) 
 plot(AL_Feb15_c, main="Feb_15", col=cl)
 plot(AL_Feb14_c, main="Feb_14", col=cl)
 plot(AL_Feb13_c, main="Feb_13", col=cl)
@@ -80,7 +80,7 @@ plot(AL_Feb10_c, main="Feb_10", col=cl)
 plot(AL_Feb09_c, main="Feb_09", col=cl)
 plot(AL_Feb08_c, main="Feb_08", col=cl)
 
-par(mfrow=c(3,2)) 
+par(mfrow=c(3,4)) 
 plot(AL_Feb07_c, main="Feb_07", col=cl)
 plot(AL_Feb06_c, main="Feb_06", col=cl)
 plot(AL_Feb05_c, main="Feb_05", col=cl)
