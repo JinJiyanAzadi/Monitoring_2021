@@ -52,11 +52,16 @@ AL_Feb02_c <- crop(AL_Feb02, ext)
 AL_Feb01_c <- crop(AL_Feb01, ext)
 AL_Feb00_c <- crop(AL_Feb00, ext)
 
-(# We stack the images together to ease the cropping and plottig procedeures
+# We stack the images together to do a boxplot for the yearly mean value
 ALDH_15yr <- stack(AL_Feb15_c, AL_Feb14_c, AL_Feb13_c, AL_Feb12_c, AL_Feb11_c, AL_Feb10_c, AL_Feb09_c, AL_Feb08_c, AL_Feb07_c, AL_Feb06_c, AL_Feb05_c, AL_Feb04_c, AL_Feb03_c, AL_Feb02_c, AL_Feb01_c, AL_Feb00_c) 
 
 # We crop the images to highlight the Himalayas
-ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext")
+ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is the cropped following the coordinates in the argument "ext"
+    
+# Boxplot
+dev.off()
+boxplot(ALDH_15yr_c, horizontal=T, axis=T, outline=F, col="royalblue", main="Annual_Feb Albedo variation")
+
 
     
 cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','orangered4'))(100) # preferito --> MIGLIORE
@@ -146,6 +151,3 @@ IC_Jan21_R <- brick("c_gls_SCE_202101210000_NHEMI_VIIRS_V1.0.1.nc") # when I nee
 IC_Jan21_R <- reclassify(IC_Jan21, cbind(253:255, NA)) 
 
 
-# Boxplot
-dev.off()
-boxplot(EN, horizontal=T, axis=T, outline=F)
