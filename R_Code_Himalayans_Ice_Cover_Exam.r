@@ -61,7 +61,7 @@ ALDH_15yr_c <- stack(AL_Feb00_c, AL_Feb01_c, AL_Feb02_c,  AL_Feb03_c, AL_Feb04_c
     
 # Boxplot
 dev.off()
-boxplot(ALDH_15yr_c, horizontal=T, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation")
+boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015")
 # Need to fix the labeling
 
 #Try the line variation among the most diverse year 
