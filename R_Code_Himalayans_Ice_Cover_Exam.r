@@ -61,6 +61,9 @@ ALDH_15yr_c <- crop(ALDH_15yr, ext) # Then we create a second argument which is 
 # Boxplot
 dev.off()
 boxplot(ALDH_15yr_c, horizontal=T, axis=T, outline=F, col="royalblue", main="Annual_Feb Albedo variation")
+# Need to fix the labeling
+
+#Try the line variation among the most diverse year 
 
 
     
