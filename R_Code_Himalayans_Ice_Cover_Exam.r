@@ -92,6 +92,42 @@ plot(AL_Feb12_c, main="Feb_12", col=cl)
 plot(AL_Feb13_c, main="Feb_13", col=cl)
 plot(AL_Feb14_c, main="Feb_14", col=cl)
 plot(AL_Feb15_c, main="Feb_15", col=cl)
+
+
+##############################################
+
+> ALDH_15yr_c
+class      : RasterStack 
+dimensions : 1344, 3136, 4214784, 16  (nrow, ncol, ncell, nlayers)
+resolution : 0.008928571, 0.008928571  (x, y)
+extent     : 67.99554, 95.99554, 26.00446, 38.00446  (xmin, xmax, ymin, ymax)
+crs        : +proj=longlat +ellps=WGS84 +no_defs 
+names      : Broadband//spectrum.1, Broadband//spectrum.2, Broadband//spectrum.3, Broadband//spectrum.4, Broadband//spectrum.5, Broadband//spectrum.6, Broadband//spectrum.7, Broadband//spectrum.8, Broadband//spectrum.9, Broadband//pectrum.10, Broadband//pectrum.11, Broadband//pectrum.12, Broadband//pectrum.13, Broadband//pectrum.14, Broadband//pectrum.15, ... 
+min values :                0.0199,                0.0213,                0.0220,                0.0218,                0.0228,                0.0208,                0.0217,                0.0227,                0.0221,                0.0210,                0.0199,                0.0203,                0.0240,                0.0192,                0.0200, ... 
+max values :                0.7790,                0.7733,                0.7796,                0.7038,                0.7673,                0.7616,                0.7731,                0.7619,                0.7771,                0.7760,                0.7735,                0.7830,                0.7782,                0.7794,                0.7786, ... 
+
+> min_values <- c(0.0199, 0.0213, 0.0220, 0.0218, 0.0228, 0.0208, 0.0217, 0.0227, 0.0221, 0.0210, 0.0199,0.0203,0.0240, 0.0192,0.0200)
+> max_values<- c(0.7790, 0.7733, 0.7796, 0.7038, 0.7673,  0.7616, 0.7731, 0.7619, 0.7771, 0.7760, 0.7735, 0.7830, 0.7782, 0.7794, 0.7786)
+> df <- data.frame(min_values, max_values)
+> df
+   min_values max_values
+1      0.0199     0.7790
+2      0.0213     0.7733
+3      0.0220     0.7796
+4      0.0218     0.7038
+5      0.0228     0.7673
+6      0.0208     0.7616
+7      0.0217     0.7731
+8      0.0227     0.7619
+9      0.0221     0.7771
+10     0.0210     0.7760
+11     0.0199     0.7735
+12     0.0203     0.7830
+13     0.0240     0.7782
+14     0.0192     0.7794
+15     0.0200     0.7786
+> 
+#################################################
     
 
 -----------------
