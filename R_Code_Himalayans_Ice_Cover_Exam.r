@@ -7,6 +7,7 @@ library(ncdf4) # for .nc files
 library(colorspace) # to choose a set palette from the package
 library(MODISTools) # not req for now
 library(gdalUtils)
+library(dplyr) # data cleaning and analysis 
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
