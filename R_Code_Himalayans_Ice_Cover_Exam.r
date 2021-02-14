@@ -81,8 +81,9 @@ cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','o
 
 
 # Plot the images in two rounds to allow showing the label on each image 
-# png("AL_08_15.png") to export and save the images in .png format, into the directory folder
 
+
+png("AL_00_07.png") # to export and save the images in .png format, into the directory folder
 par(mfrow=c(3,4)) 
 plot(AL_Feb00_c, main="AL_Feb_00", col=cl)
 plot(AL_Feb01_c, main="AL_Feb_01", col=cl)
@@ -92,7 +93,9 @@ plot(AL_Feb04_c, main="AL_Feb_04", col=cl)
 plot(AL_Feb05_c, main="AL_Feb_05", col=cl)
 plot(AL_Feb06_c, main="AL_Feb_06", col=cl)
 plot(AL_Feb07_c, main="AL_Feb_07", col=cl)
+dev.off()
 
+png("AL_08_15.png") # to export and save the images in .png format, into the directory folder
 par(mfrow=c(3,4)) 
 plot(AL_Feb08_c, main="AL_Feb_08", col=cl)
 plot(AL_Feb09_c, main="AL_Feb_09", col=cl)
@@ -102,6 +105,7 @@ plot(AL_Feb12_c, main="AL_Feb_12", col=cl)
 plot(AL_Feb13_c, main="AL_Feb_13", col=cl)
 plot(AL_Feb14_c, main="AL_Feb_14", col=cl)
 plot(AL_Feb15_c, main="AL_Feb_15", col=cl)
+dev.off()
 
 
 # Prepare the ground for the time series and forecast based on the albedo details, we extrapolate the min/max albedo values from the stack ALDH_15yr_c
