@@ -70,19 +70,12 @@ AL_Feb15_c <- crop(AL_Feb15, ext)
 # Stack the images together to do a boxplot to get the annual mean value
 ALDH_15yr_c <- stack(AL_Feb00_c, AL_Feb01_c, AL_Feb02_c,  AL_Feb03_c, AL_Feb04_c, AL_Feb05_c, AL_Feb06_c, AL_Feb07_c, AL_Feb08_c, AL_Feb09_c, AL_Feb10_c,  AL_Feb11_c,  AL_Feb12_c, AL_Feb13_c, AL_Feb14_c, AL_Feb15_c)
     
-# Boxplot
-dev.off()
-boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015")
-# Need to fix the labeling
-
 
 # Set the colours palette for the plotting   
 cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','orangered4'))(100) 
 
 
 # Plot the images in two rounds to allow showing the label on each image 
-
-
 png("AL_00_07.png") # to export and save the images in .png format, into the directory folder
 par(mfrow=c(3,4)) 
 plot(AL_Feb00_c, main="AL_Feb_00", col=cl)
@@ -154,6 +147,11 @@ ts1_H <- ts(df, start = 2000, end = 2015, frequency = 12)
 
 # Plot the decomposition of the time series which will give four diverse observation points  
 plot(decompose(ts1_H))
+
+# Create the forecast using the Arima model
+arimamodel <- auto.arima(ts1_H, stationary = F, seasonal = T)
+plot(forecast(arimamodel, h= 24))
+
 
 
 # Now I will work on the Land SUrface Temperature data in order to see the trend of the T° in the same period 2000-2015.
@@ -306,8 +304,15 @@ png("LST_Monthly_Feb T° variation_Period 2000-2015.png")
 boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015")
 dev.off()
 
+# Plot and save the boxplot of the albedo 
+png("ALDH_15yr_c.png")
+boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", xaxt = 'n')
+dev.off()
 
-
+# Compare them
+par(mfrow=c(2,1))
+boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015", xaxt = 'n')
+boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", xaxt = 'n')
 
 
 #################################################
