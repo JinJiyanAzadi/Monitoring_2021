@@ -1,13 +1,23 @@
-# Analysis of the Himalayans' Ice Cover over a perdiod of time
+# MONITORING ECOSYSTEM CHANGES AND FUNCTIONING - UNIBO 2020/2021 - Prof. Duccio Rocchini / Student: Norma Brunetto
+# Exam 19.02.2021 
+
+# Object: Analysis of the Himalayans' albedo and land surface temperature over a perdiod covering 2000-2015 --> to see the effects of climate changes and its impacts
+
+# Assuming that I already have installed all the packages needed, using the input "install.packages("name of the package")" 
+
+# I recall the needed libraries as per below:
 
 library(raster) # raster data i.e. images(pixels)
 library(RStoolbox) #  for remote sensing
-library(rgdal) # for .hdf files from MODIS + I had to install the "OSge 4w" software
+library(rgdal) # for .hdf files from MODIS 
+library(gdalUtils) # used to open the.hdf files dowloaded from MODIS Earth-NASA website + I had to install the "OSge 4w" software
 library(ncdf4) # for .nc files 
-library(colorspace) # to choose a set palette from the package
+library(colorspace) # to choose a set palette from the package # not req for now
 library(MODISTools) # not req for now
-library(gdalUtils)
-library(dplyr) # data cleaning and analysis 
+library(dplyr) # data cleaning and analysis - used for the time sereries
+library(tseries) # used for the time series analysis
+library(forecast) # used for the forecast after computing the time series
+
 
 setwd("D:/Utenti/Norma/Desktop/exam")
 
@@ -35,11 +45,11 @@ AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
 
 
 
-# We set the coordinates for the cropping, to highlight the HinduKush–Karakoram–Himalaya (HKH) areas as the raster image is at a global scale
+# Set the coordinates for the cropping, to highlight the HinduKush–Karakoram–Himalaya (HKH) areas as the raster image is at a global scale
 ext <- c(68,96,26,38) # xmin xmax ymin ymax, where x=long & y=lat
 
 
-# We create the cropped image for each observed year
+# Create the cropped image for each observed year // I preferred to raster individually in case I needed the single image for an individual  analysis later on
 AL_Feb00_c <- crop(AL_Feb00, ext)
 AL_Feb01_c <- crop(AL_Feb01, ext)
 AL_Feb02_c <- crop(AL_Feb02, ext)
@@ -57,7 +67,7 @@ AL_Feb13_c <- crop(AL_Feb13, ext)
 AL_Feb14_c <- crop(AL_Feb14, ext)
 AL_Feb15_c <- crop(AL_Feb15, ext)
 
-# We stack the images together to do a boxplot to get the annual mean value
+# Stack the images together to do a boxplot to get the annual mean value
 ALDH_15yr_c <- stack(AL_Feb00_c, AL_Feb01_c, AL_Feb02_c,  AL_Feb03_c, AL_Feb04_c, AL_Feb05_c, AL_Feb06_c, AL_Feb07_c, AL_Feb08_c, AL_Feb09_c, AL_Feb10_c,  AL_Feb11_c,  AL_Feb12_c, AL_Feb13_c, AL_Feb14_c, AL_Feb15_c)
     
 # Boxplot
