@@ -21,7 +21,7 @@ library(forecast) # used for the forecast after computing the time series
 
 setwd("D:/Utenti/Norma/Desktop/exam") # setting the working directory. To know exactly the "location" of the working directory use the input "getwd".
 
-# Raster the albedo for 15yr period 2000-2015
+# Raster the albedo for 15yr period 2000-2015 --> February of each year
 
 # Albedo - Directional Albedo 1km Global V1 - datset from Copernicus, link below:
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
@@ -155,6 +155,12 @@ ts1_H <- ts(df, start = 2000, end = 2015, frequency = 12)
 # Plot the decomposition of the time series which will give four diverse observation points  
 plot(decompose(ts1_H))
 
+
+# Now I will work on the Land SUrface Temperature data in order to see the trend of the T° in the same period 2000-2015.
+# Data have been taken from the Earth Data NASA website, full link below:
+# https://search.earthdata.nasa.gov/search/granules?p=C194001235-LPDAAC_ECS&pg[0][qt]=2015-02-05T00%3A00%3A00.000Z%2C2015-02-05T23%3A59%3A59.999Z&pg[0][gsk]=-start_date&q=C194001235-LPDAAC_ECS&sb[0]=66.65625%2C26.31298%2C105.46875%2C41.92893&m=0!0!0!1!0!0%2C2&tl=1597489104!4!!
+# From the MODIS/Terra Land Surface Temperature/Emissivity Monthly L3 Global 0.05Deg CMG V006 --> Data from February of each year as per the albedo above.
+# The data are in .hdf format and instructions on the extrapolation of data have been put in a separated script.
 
 #################################################
 # Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors related also to "Human Factor": 
