@@ -303,12 +303,12 @@ dev.off() # to close the graph. Note: sometimes after using dev.off, later on R 
 
 # Plot and save the boxplot to see the T° variation during the observed period
 png("LST_Monthly_Feb T° variation_Period 2000-2015.png")
-boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015")
+boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015", ylab= "Temperature", xaxt = 'n')
 dev.off()
 
 # Plot and save the boxplot of the albedo 
 png("ALDH_15yr_c.png")
-boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", xaxt = 'n')
+boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", ylab= "Albedo", xaxt = 'n')
 dev.off()
 
 # Compare them
