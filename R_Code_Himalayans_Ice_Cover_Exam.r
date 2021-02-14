@@ -151,9 +151,9 @@ plot(decompose(ts1_H))
 
 
 #################################################
-# Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors: 
+# Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors related also to "Human Factor": 
 # 1- the human eye is particularly responsive to the yellow colour;
-# 2- I have avoided using the red and green colour as these are not distinguished by those  people affected by daltonism.
+# 2- I have avoided using the red and green colours as these are not distinguished by those people affected by daltonism.
 #################################################
 
 sessionInfo() # to get the session info to be given to the public
