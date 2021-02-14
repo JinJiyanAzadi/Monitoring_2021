@@ -160,7 +160,128 @@ plot(decompose(ts1_H))
 # Data have been taken from the Earth Data NASA website, full link below:
 # https://search.earthdata.nasa.gov/search/granules?p=C194001235-LPDAAC_ECS&pg[0][qt]=2015-02-05T00%3A00%3A00.000Z%2C2015-02-05T23%3A59%3A59.999Z&pg[0][gsk]=-start_date&q=C194001235-LPDAAC_ECS&sb[0]=66.65625%2C26.31298%2C105.46875%2C41.92893&m=0!0!0!1!0!0%2C2&tl=1597489104!4!!
 # From the MODIS/Terra Land Surface Temperature/Emissivity Monthly L3 Global 0.05Deg CMG V006 --> Data from February of each year as per the albedo above.
-# The data are in .hdf format and instructions on the extrapolation of data have been put in a separated script.
+# The data are in .hdf format and instructions on the extrapolation/conversion into .tif of data have been put in a separated script.
+
+
+# Get the info from the .hdf file of year 2000 --> it might take a while to run
+gdalinfo("MOD11C3.A2000032.061.2020048181639.hdf")
+
+# Get the list of the subsets from the above dataset
+sds00 <- get_subdatasets("MOD11C3.A2000032.061.2020048181639.hdf")
+sds00
+
+# In this case we need only teh data in the first subset so we convert into .tif only the first line of the subset
+gdal_translate(sds00[1], dst_dataset = "LST_Day_Feb_2000.tif")
+
+# Raster the converted .tif file
+rastT2000 <- raster("LST_Day_Feb_2000.tif")
+
+# The above description applies to the below data, repeated for the remaining years from 2001 to 2015
+
+# 2001
+gdalinfo("MOD11C3.A2001032.061.2020086140543.hdf")
+sds01 <- get_subdatasets("MOD11C3.A2001032.061.2020086140543.hdf")
+sds01
+gdal_translate(sds01[1], dst_dataset = "LST_Day_Feb_2001.tif")
+rastT2001 <- raster("LST_Day_Feb_2001.tif")
+
+# 2002
+gdalinfo("MOD11C3.A2002032.061.2020111051753.hdf")
+sds02 <- get_subdatasets("MOD11C3.A2002032.061.2020111051753.hdf")
+sds02
+gdal_translate(sds02[1], dst_dataset = "LST_Day_Feb_2002.tif")
+rastT2002 <- raster("LST_Day_Feb_2002.tif")
+
+# 2003
+gdalinfo("MOD11C3.A2003032.061.2020149224244.hdf")
+sds03 <- get_subdatasets("MOD11C3.A2003032.061.2020149224244.hdf")
+sds03
+gdal_translate(sds03[1], dst_dataset = "LST_Day_Feb_2003.tif")
+rastT2003 <- raster("LST_Day_Feb_2003.tif")
+
+# 2004
+gdalinfo("MOD11C3.A2004032.061.2020168161927.hdf")
+sds04 <- get_subdatasets("MOD11C3.A2004032.061.2020168161927.hdf")
+sds04
+gdal_translate(sds04[1], dst_dataset = "LST_Day_Feb_2004.tif")
+rastT2004 <- raster("LST_Day_Feb_2004.tif")
+
+# 2005
+gdalinfo("MOD11C3.A2005032.061.2020230201750.hdf")
+sds05 <- get_subdatasets("MOD11C3.A2005032.061.2020230201750.hdf")
+sds05
+gdal_translate(sds05[1], dst_dataset = "LST_Day_Feb_2005.tif")
+rastT2005 <- raster("LST_Day_Feb_2005.tif")
+
+# 2006
+gdalinfo("MOD11C3.A2006032.061.2020273005831.hdf")
+sds06 <- get_subdatasets("MOD11C3.A2006032.061.2020273005831.hdf")
+sds06
+gdal_translate(sds06[1], dst_dataset = "LST_Day_Feb_2006.tif")
+rastT2006 <- raster("LST_Day_Feb_2006.tif")
+
+# 2007
+gdalinfo("MOD11C3.A2007032.006.2015311055620.hdf")
+sds07 <- get_subdatasets("MOD11C3.A2007032.006.2015311055620.hdf")
+sds07
+gdal_translate(sds07[1], dst_dataset = "LST_Day_Feb_2007.tif")
+rastT2007 <- raster("LST_Day_Feb_2007.tif")
+
+# 2008
+gdalinfo("MOD11C3.A2008032.006.2015343142031.hdf")
+sds08 <- get_subdatasets("MOD11C3.A2008032.006.2015343142031.hdf")
+sds08
+gdal_translate(sds08[1], dst_dataset = "LST_Day_Feb_2008.tif")
+rastT2008 <- raster("LST_Day_Feb_2008.tif")
+
+# 2009
+gdalinfo("MOD11C3.A2009032.006.2016007161930.hdf")
+sds09 <- get_subdatasets("MOD11C3.A2009032.006.2016007161930.hdf")
+sds09
+gdal_translate(sds09[1], dst_dataset = "LST_Day_Feb_2009.tif")
+rastT2009 <- raster("LST_Day_Feb_2009.tif")
+
+# 2010
+gdalinfo("MOD11C3.A2010032.006.2016035025659.hdf")
+sds10 <- get_subdatasets("MOD11C3.A2010032.006.2016035025659.hdf")
+sds10
+gdal_translate(sds10[1], dst_dataset = "LST_Day_Feb_2010.tif")
+rastT2010 <- raster("LST_Day_Feb_2010.tif")
+
+# 2011
+gdalinfo("MOD11C3.A2011032.006.2016053232552.hdf")
+sds11 <- get_subdatasets("MOD11C3.A2011032.006.2016053232552.hdf")
+sds11
+gdal_translate(sds11[1], dst_dataset = "LST_Day_Feb_2011.tif")
+rastT2011 <- raster("LST_Day_Feb_2011.tif")
+
+# 2012
+gdalinfo("MOD11C3.A2012032.006.2016105152522.hdf")
+sds12 <- get_subdatasets("MOD11C3.A2012032.006.2016105152522.hdf")
+sds12
+gdal_translate(sds12[1], dst_dataset = "LST_Day_Feb_2012.tif")
+rastT2012 <- raster("LST_Day_Feb_2012.tif")
+
+# 2013
+gdalinfo("MOD11C3.A2013032.006.2016156075039.hdf")
+sds13 <- get_subdatasets("MOD11C3.A2013032.006.2016156075039.hdf")
+sds13
+gdal_translate(sds13[1], dst_dataset = "LST_Day_Feb_2013.tif")
+rastT2013 <- raster("LST_Day_Feb_2013.tif")
+
+# 2014
+gdalinfo("MOD11C3.A2014032.006.2016198015912.hdf")
+sds14 <- get_subdatasets("MOD11C3.A2014032.006.2016198015912.hdf")
+sds14
+gdal_translate(sds14[1], dst_dataset = "LST_Day_Feb_2014.tif")
+rastT2014 <- raster("LST_Day_Feb_2014.tif")
+
+# 2015
+gdalinfo("MOD11C3.A2015032.006.2016223171450.hdf")
+sds15 <- get_subdatasets("MOD11C3.A2015032.006.2016223171450.hdf")
+sds15
+gdal_translate(sds15[1], dst_dataset = "LST_Day_Feb_2015.tif")
+rastT2015 <- raster("LST_Day_Feb_2015.tif")
 
 #################################################
 # Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors related also to "Human Factor": 
