@@ -301,6 +301,10 @@ png("T_15yr_c.png") # to save the hraphs in the folder
 plot(T_15yr_c, col=clT) # to plot the T° in the period 2000-2015
 dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the inout dev.off twice and go back to normal
 
+# Plot and save the boxplot to see the T° variation during the observed period
+png("LST_Monthly_Feb T° variation_Period 2000-2015.png")
+boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015")
+dev.off()
 
 
 
