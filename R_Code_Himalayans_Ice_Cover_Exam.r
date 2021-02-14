@@ -101,7 +101,7 @@ plot(AL_Feb15_c, main="AL_Feb_15", col=cl)
 dev.off()
 
 
-# Prepare the ground for the time series and forecast based on the albedo details, we extrapolate the min/max albedo values from the stack ALDH_15yr_c
+# Prepare the ground for the time series and forecast based on the albedo details, by extrapolating the min/max albedo values from the stack ALDH_15yr_c
 
 > ALDH_15yr_c
 #class      : RasterStack 
@@ -117,8 +117,8 @@ max values :                0.7790,                0.7733,                0.7796
 min_values <- c(0.0199, 0.0213, 0.0220, 0.0218, 0.0228, 0.0208, 0.0217, 0.0227, 0.0221, 0.0210, 0.0199,0.0203,0.0240, 0.0192,0.0200)
 max_values<- c(0.7790, 0.7733, 0.7796, 0.7038, 0.7673,  0.7616, 0.7731, 0.7619, 0.7771, 0.7760, 0.7735, 0.7830, 0.7782, 0.7794, 0.7786)
 
-# Combine the values together before creating the dat frame. 
-# Note: If the values are not combined before, the time series will result into two different graphs (prior the decomposition), one for the min and one for the max.
+# Combine the values together before creating the data frame. 
+# Note: If the values are not combined before, the time series will result into two different graphs (prior the decomposition), one for the min and one for the max values.
 data <- (c(min_values, max_values))
 
 # Create a data frame with these values 
@@ -143,14 +143,16 @@ df
 
 
 # Create the time series based on the data stored in df, using the argument ts()
-ts1_H <- ts(df, start = 2000, end = 2015, frequency = 12)
+ts1_H <- ts(df, start = 2000, end = 2015, frequency = 12) # the freq=12 means 1 measurement/set each year
 
-# Plot the decomposition of the time series which will give four diverse observation points  
+# Plot the decomposition of the time series which will give combination of level, trend, seasonality, and noise components. 
 plot(decompose(ts1_H))
 
-# Create the forecast using the Arima model
-arimamodel <- auto.arima(ts1_H, stationary = F, seasonal = T)
-plot(forecast(arimamodel, h= 24))
+# Create the forecast using the Arima model= Autoregressive integrated moving average -->
+# fitted to time series data either to better understand the data or to predict future points in the series (forecasting).
+arimamodel <- auto.arima(ts1_H, stationary = F, seasonal = T) # auto.arima fits the best ARIMA model to univariate time series -->
+# the latter refers to a time series that consists of single (scalar) observations recorded sequentially over equal time increments.
+plot(forecast(arimamodel, h= 60)) # h arg is the number of months we want the forecast for --> h=60 means next 5 years
 
 
 
