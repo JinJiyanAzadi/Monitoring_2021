@@ -19,7 +19,7 @@ library(tseries) # used for the time series analysis
 library(forecast) # used for the forecast after computing the time series
 
 
-setwd("D:/Utenti/Norma/Desktop/exam")
+setwd("D:/Utenti/Norma/Desktop/exam") # setting the working directory. To know exactly the "location" of the working directory use the input "getwd".
 
 # Raster the albedo for 15yr period 2000-2015
 
