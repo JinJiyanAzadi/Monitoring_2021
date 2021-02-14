@@ -293,9 +293,12 @@ ext <- c(68,96,26,38) # xmin xmax ymin ymax, where x=long & y=lat
 # CReate a cropped version of the previous stack
 T_15yr_c <- crop(T_15yr, ext)
 
+# Create e colour palette for the T° graphs in order to highlight tha T° variations among the years
+clT <- colorRampPalette(c('midnightblue','lightblue','yellow',"tan2"))(100)
+
 # Plot the cropped stack 
 png("T_15yr_c.png") # to save the hraphs in the folder
-plot(T_15yr_c, col=cl) # to plot the T° in the period 2000-2015
+plot(T_15yr_c, col=clT) # to plot the T° in the period 2000-2015
 dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the inout dev.off twice and go back to normal
 
 
