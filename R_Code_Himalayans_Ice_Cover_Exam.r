@@ -102,8 +102,6 @@ plot(AL_Feb14_c, main="Feb_14", col=cl)
 plot(AL_Feb15_c, main="Feb_15", col=cl)
 
 
-##############################################
-
 # Prepare the ground for the time series and forecast based on the albedo details, we extrapolate the min/max albedo values from the stack ALDH_15yr_c
 
 > ALDH_15yr_c
@@ -143,7 +141,15 @@ df
 13     0.0240     0.7782
 14     0.0192     0.7794
 15     0.0200     0.7786
-> 
+
+
+# Create the time series based on the data stored in df, using the argument ts()
+ts1_H <- ts(df, start = 2000, end = 2015, frequency = 12)
+
+# Plot the decomposition of the time series which will give four diverse observation points  
+plot(decompose(ts1_H))
+
+
 #################################################
 
 sessionInfo() # to get the session info to be given to the public
