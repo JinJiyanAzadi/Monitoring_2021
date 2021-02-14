@@ -81,25 +81,27 @@ cl <- colorRampPalette(c('white','lightblue','midnightblue', 'tan2', 'yellow','o
 
 
 # Plot the images in two rounds to allow showing the label on each image 
-par(mfrow=c(3,4)) 
-plot(AL_Feb00_c, main="Feb_00", col=cl)
-plot(AL_Feb01_c, main="Feb_01", col=cl)
-plot(AL_Feb02_c, main="Feb_02", col=cl)
-plot(AL_Feb03_c, main="Feb_03", col=cl)
-plot(AL_Feb04_c, main="Feb_04", col=cl)
-plot(AL_Feb05_c, main="Feb_05", col=cl)
-plot(AL_Feb06_c, main="Feb_06", col=cl)
-plot(AL_Feb07_c, main="Feb_07", col=cl)
+# png("AL_08_15.png") to export and save the images in .png format, into the directory folder
 
 par(mfrow=c(3,4)) 
-plot(AL_Feb08_c, main="Feb_08", col=cl)
-plot(AL_Feb09_c, main="Feb_09", col=cl)
-plot(AL_Feb10_c, main="Feb_10", col=cl)
-plot(AL_Feb11_c, main="Feb_11", col=cl)
-plot(AL_Feb12_c, main="Feb_12", col=cl)
-plot(AL_Feb13_c, main="Feb_13", col=cl)
-plot(AL_Feb14_c, main="Feb_14", col=cl)
-plot(AL_Feb15_c, main="Feb_15", col=cl)
+plot(AL_Feb00_c, main="AL_Feb_00", col=cl)
+plot(AL_Feb01_c, main="AL_Feb_01", col=cl)
+plot(AL_Feb02_c, main="AL_Feb_02", col=cl)
+plot(AL_Feb03_c, main="AL_Feb_03", col=cl)
+plot(AL_Feb04_c, main="AL_Feb_04", col=cl)
+plot(AL_Feb05_c, main="AL_Feb_05", col=cl)
+plot(AL_Feb06_c, main="AL_Feb_06", col=cl)
+plot(AL_Feb07_c, main="AL_Feb_07", col=cl)
+
+par(mfrow=c(3,4)) 
+plot(AL_Feb08_c, main="AL_Feb_08", col=cl)
+plot(AL_Feb09_c, main="AL_Feb_09", col=cl)
+plot(AL_Feb10_c, main="AL_Feb_10", col=cl)
+plot(AL_Feb11_c, main="AL_Feb_11", col=cl)
+plot(AL_Feb12_c, main="AL_Feb_12", col=cl)
+plot(AL_Feb13_c, main="AL_Feb_13", col=cl)
+plot(AL_Feb14_c, main="AL_Feb_14", col=cl)
+plot(AL_Feb15_c, main="AL_Feb_15", col=cl)
 
 
 # Prepare the ground for the time series and forecast based on the albedo details, we extrapolate the min/max albedo values from the stack ALDH_15yr_c
