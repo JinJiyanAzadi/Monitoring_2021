@@ -283,6 +283,26 @@ sds15
 gdal_translate(sds15[1], dst_dataset = "LST_Day_Feb_2015.tif")
 rastT2015 <- raster("LST_Day_Feb_2015.tif")
 
+# Stack all the converted .tif files 
+T_15yr <- stack(rastT2000, rastT2001, rastT2002, rastT2003, rastT2004, rastT2005, rastT2006, rastT2007, rastT2008, rastT2009, rastT2010, rastT2011, rastT2012, rastT2013, rastT2014, rastT2015)
+class(T_15yr) # to double check the class of T_15yr and make sure it is a raster stack
+
+# Set again the cropping coordinates 
+ext <- c(68,96,26,38) # xmin xmax ymin ymax, where x=long & y=lat
+
+# CReate a cropped version of the previous stack
+T_15yr_c <- crop(T_15yr, ext)
+
+# Plot the cropped stack 
+png("T_15yr_c.png") # to save the hraphs in the folder
+plot(T_15yr_c, col=cl) # to plot the T° in the period 2000-2015
+dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the inout dev.off twice and go back to normal
+
+
+
+
+
+
 #################################################
 # Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors related also to "Human Factor": 
 # 1- the human eye is particularly responsive to the yellow colour;
