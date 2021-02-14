@@ -151,6 +151,10 @@ plot(decompose(ts1_H))
 
 
 #################################################
+# Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors: 
+# 1- the human eye is particularly responsive to the yellow colour;
+# 2- I have avoided using the red and green colour as these are not distinguished by those  people affected by daltonism.
+#################################################
 
 sessionInfo() # to get the session info to be given to the public
 Sys.time() # to publish the time at which the script is done
@@ -159,6 +163,8 @@ Sys.time() # to publish the time at which the script is done
 # Insert full data citation as per user guide
 # Include link to data page to see full description
 ###############################################################################################################
+
+# Thank you for the attention.
 
 
 
