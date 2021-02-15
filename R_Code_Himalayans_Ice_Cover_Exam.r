@@ -94,6 +94,29 @@ plot(AL_Feb14_c, main="AL_Feb_14", col=cl)
 plot(AL_Feb15_c, main="AL_Feb_15", col=cl)
 dev.off()
 
+# To create a video from the albedo png files:
+# Step 1 - create a list of the files .nc
+ALDH_list <- list.files(pattern="c_gls")
+list_ALDH_ras <- lapply(ALDH_list, raster)
+
+# step 2 - crop and raster them into the ras_list
+ext <- c(68,96,26,38) 
+ras_list <- list()
+for(i in list_ALDH_ras){ras_list <- append(ras_list, crop(i, ext))} # the "for" is used to create a "loop" in order to apply the same f to differnt objects
+
+# step 3 - plot png via the loop and save them progressively 
+index <- 0
+for(i in ras_list){file_name <- paste("ALDH_Feb", index, ".png", sep="")
+png(file=file_name)
+plot(i, col=cl)
+dev.off()
+index <- index+1}
+
+# step 4 - make the video from the frames, which is saved then on the directory folder
+au_png <- sprintf("ALDH_Feb%01d.png", 1:15)
+av_encode_video(au_png, "ALDH_Feb.mp4", framerate =1)
+browseURL('ALDH_Feb.mp4') # reproduce the video
+
 
 # Prepare the ground for the time series and forecast based on the albedo details, by extrapolating the min/max albedo values from the stack ALDH_15yr_c
 
