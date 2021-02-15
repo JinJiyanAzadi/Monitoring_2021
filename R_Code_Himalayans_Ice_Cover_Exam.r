@@ -4,7 +4,6 @@
 # Object: Analysis of the Himalayans' albedo and land surface temperature over a perdiod covering 2000-2015 --> to see the effects of climate changes and its impacts
 
 # Assuming that I already have installed all the packages needed, using the input "install.packages("name of the package")" 
-
 # I recall the needed libraries as per below:
 
 library(raster) # raster data i.e. images(pixels)
@@ -12,8 +11,6 @@ library(RStoolbox) #  for remote sensing
 library(rgdal) # for .hdf files from MODIS 
 library(gdalUtils) # used to open the.hdf files dowloaded from MODIS Earth-NASA website + I had to install the "OSge 4w" software
 library(ncdf4) # for .nc files 
-library(colorspace) # to choose a set palette from the package # not req for now
-library(MODISTools) # not req for now
 library(dplyr) # data cleaning and analysis - used for the time sereries
 library(tseries) # used for the time series analysis
 library(forecast) # used for the forecast after computing the time series
@@ -21,8 +18,7 @@ library(forecast) # used for the forecast after computing the time series
 
 setwd("D:/Utenti/Norma/Desktop/exam") # setting the working directory. To know exactly the "location" of the working directory use the input "getwd".
 
-# Raster the albedo for 15yr period 2000-2015 --> February of each year
-
+# Raster the albedo data for the 15yr period 2000-2015 --> February of each year
 # Albedo - Directional Albedo 1km Global V1 - datset from Copernicus, link below:
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
 
@@ -44,10 +40,8 @@ AL_Feb14 <- raster("c_gls_ALDH_201401240000_GLOBE_VGT_V1.4.1.nc")
 AL_Feb15 <- raster("c_gls_ALDH_201501240000_GLOBE_PROBAV_V1.5.1.nc")
 
 
-
 # Set the coordinates for the cropping, to highlight the HinduKush–Karakoram–Himalaya (HKH) areas as the raster image is at a global scale
 ext <- c(68,96,26,38) # xmin xmax ymin ymax, where x=long & y=lat
-
 
 # Create the cropped image for each observed year // I preferred to raster individually in case I needed the single image for an individual  analysis later on
 AL_Feb00_c <- crop(AL_Feb00, ext)
@@ -67,7 +61,7 @@ AL_Feb13_c <- crop(AL_Feb13, ext)
 AL_Feb14_c <- crop(AL_Feb14, ext)
 AL_Feb15_c <- crop(AL_Feb15, ext)
 
-# Stack the images together to do a boxplot to get the annual mean value
+# Stack the images together
 ALDH_15yr_c <- stack(AL_Feb00_c, AL_Feb01_c, AL_Feb02_c,  AL_Feb03_c, AL_Feb04_c, AL_Feb05_c, AL_Feb06_c, AL_Feb07_c, AL_Feb08_c, AL_Feb09_c, AL_Feb10_c,  AL_Feb11_c,  AL_Feb12_c, AL_Feb13_c, AL_Feb14_c, AL_Feb15_c)
     
 
@@ -113,7 +107,7 @@ dev.off()
 min values :                0.0199,                0.0213,                0.0220,                0.0218,                0.0228,                0.0208,                0.0217,                0.0227,                0.0221,                0.0210,                0.0199,                0.0203,                0.0240,                0.0192,                0.0200, ... 
 max values :                0.7790,                0.7733,                0.7796,                0.7038,                0.7673,                0.7616,                0.7731,                0.7619,                0.7771,                0.7760,                0.7735,                0.7830,                0.7782,                0.7794,                0.7786, ... 
 
-# Assign the min/max albedo values to two different variables called "min_values" & "max_values" respectivelly 
+# Assign the min/max albedo values to two different variables called "min_values" & "max_values" respectively 
 min_values <- c(0.0199, 0.0213, 0.0220, 0.0218, 0.0228, 0.0208, 0.0217, 0.0227, 0.0221, 0.0210, 0.0199,0.0203,0.0240, 0.0192,0.0200)
 max_values<- c(0.7790, 0.7733, 0.7796, 0.7038, 0.7673,  0.7616, 0.7731, 0.7619, 0.7771, 0.7760, 0.7735, 0.7830, 0.7782, 0.7794, 0.7786)
 
@@ -150,11 +144,11 @@ plot(decompose(ts1_H))
 
 # Create the forecast using the Arima model= Autoregressive integrated moving average -->
 # fitted to time series data either to better understand the data or to predict future points in the series (forecasting).
+
 arimamodel <- auto.arima(ts1_H, stationary = F, seasonal = T) # auto.arima fits the best ARIMA model to univariate time series -->
 # the latter refers to a time series that consists of single (scalar) observations recorded sequentially over equal time increments.
+
 plot(forecast(arimamodel, h= 60)) # h arg is the number of months we want the forecast for --> h=60 means next 5 years
-
-
 
 # Now I will work on the Land SUrface Temperature data in order to see the trend of the T° in the same period 2000-2015.
 # Data have been taken from the Earth Data NASA website, full link below:
@@ -296,10 +290,10 @@ T_15yr_c <- crop(T_15yr, ext)
 # Create e colour palette for the T° graphs in order to highlight tha T° variations among the years
 clT <- colorRampPalette(c('midnightblue','lightblue','yellow',"tan2"))(100)
 
-# Plot the cropped stack 
-png("T_15yr_c.png") # to save the hraphs in the folder
+# Plot and save the cropped stack 
+png("T_15yr_c.png") # to save the graphs in the folder
 plot(T_15yr_c, col=clT) # to plot the T° in the period 2000-2015
-dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the inout dev.off twice and go back to normal
+dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the input dev.off twice and it will go back to normal
 
 # Plot and save the boxplot to see the T° variation during the observed period
 png("LST_Monthly_Feb T° variation_Period 2000-2015.png")
@@ -311,24 +305,22 @@ png("ALDH_15yr_c.png")
 boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", ylab= "Albedo", xaxt = 'n')
 dev.off()
 
-# Compare them
+# Plot them together for a better comparison
 par(mfrow=c(2,1))
 boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015", xaxt = 'n')
 boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", xaxt = 'n')
 
 
 #################################################
-# Final remark--> Pls note that colours palettes have been chosen taking into consideration two factors related also to "Human Factor": 
+# Final remark--> Pls note that the colours palettes have been chosen taking into consideration two factors related also to "Human Factor": 
 # 1- the human eye is particularly responsive to the yellow colour;
 # 2- I have avoided using the red and green colours as these are not distinguished by those people affected by daltonism.
 #################################################
 
-sessionInfo() # to get the session info to be given to the public
+sessionInfo() # to get the session info
 Sys.time() # to publish the time at which the script is done
 
-# Full script info @JinJiyanAzadi - github account to the following link: .....
-# Insert full data citation as per user guide
-# Include link to data page to see full description
+# Full script info @JinJiyanAzadi - github account to the following link: https://github.com/JinJiyanAzadi/Monitoring_2021/edit/main/R_Code_Himalayans_Ice_Cover_Exam.r
 ###############################################################################################################
 
 # Thank you for the attention.
