@@ -14,6 +14,7 @@ library(ncdf4) # for .nc files
 library(dplyr) # data cleaning and analysis - used for the time sereries
 library(tseries) # used for the time series analysis
 library(forecast) # used for the forecast after computing the time series
+library(av) # for the video making
 
 
 setwd("D:/Utenti/Norma/Desktop/exam") # setting the working directory. To know exactly the "location" of the working directory use the input "getwd".
@@ -317,6 +318,30 @@ clT <- colorRampPalette(c('midnightblue','lightblue','yellow',"tan2"))(100)
 png("T_15yr_c.png") # to save the graphs in the folder
 plot(T_15yr_c, col=clT) # to plot the T° in the period 2000-2015
 dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the input dev.off twice and it will go back to normal
+
+
+# Step 1 - reate a list of the files .nc
+T_list <- list.files(pattern="LST_Day") # I had to use the .TIF format as the original .hdf format was not recogn
+list_T_ras <- lapply(T_list, raster)
+
+# step 2 - crop and raster them into the ras_list
+ext <- c(68,96,26,38)
+ras_list_T <- list()
+for(i in list_T_ras){ras_list_T <- append(ras_list_T, crop(i, ext))}
+
+# step 3 - plot png via the loop
+index <- 0
+for(i in ras_list_T){file_name <- paste("T_Feb", index, ".png", sep="")
+png(file=file_name)
+plot(i, col=clT)
+dev.off()
+index <- index+1}
+
+# step 4 - make the video
+au_png <- sprintf("T_Feb%01d.png", 0:15)
+av_encode_video(au_png, "T_Feb.mp4", framerate =1)
+browseURL('T_Feb.mp4')
+
 
 # Plot and save the boxplot to see the T° variation during the observed period
 png("LST_Monthly_Feb T° variation_Period 2000-2015.png")
