@@ -188,7 +188,7 @@ plot(decompose(ts1_H))
 arimamodel <- auto.arima(ts1_H, stationary = F, seasonal = T) # auto.arima fits the best ARIMA model to univariate time series -->
 # the latter refers to a time series that consists of single (scalar) observations recorded sequentially over equal time increments.
 
-plot(forecast(arimamodel, h= 60)) # h arg is the number of months we want the forecast for --> h=60 means next 5 years
+plot(forecast(arimamodel, h= 60), main="5yr_Forecast_Albedo") # h arg is the number of months we want the forecast for --> h=60 means next 5 years
 
 # Now I will work on the Land SUrface Temperature data in order to see the trend of the T° in the same period 2000-2015.
 # Data have been taken from the Earth Data NASA website, full link below:
