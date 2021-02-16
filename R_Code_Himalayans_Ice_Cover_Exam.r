@@ -103,10 +103,10 @@ list_ALDH_ras <- lapply(ALDH_list, raster)
 # step 2 - crop and raster them into the ras_list
 ext <- c(68,96,26,38) 
 ras_list_ALDH <- list()
-for(i in list_ALDH_ras){ras_list <- append(ras_list, crop(i, ext))} # the "for" is used to create a "loop" in order to apply the same f to differnt objects
+for(i in list_ALDH_ras){ras_list_ALDH <- append(ras_list, crop(i, ext))} # the "for" is used to create a "loop" in order to apply the same f to differnt objects
 
 # step 3 - plot png via the loop and save them progressively 
-index <- 0
+index <- 1 
 for(i in ras_list){file_name <- paste("ALDH_Feb", index, ".png", sep="")
 png(file=file_name)
 plot(i, col=cl)
@@ -115,7 +115,7 @@ index <- index+1}
 
 # step 4 - make the video from the frames, which is saved then on the directory folder
 au_png <- sprintf("ALDH_Feb%01d.png", 1:15)
-av_encode_video(au_png, "ALDH_Feb.mp4", framerate =1)
+av_encode_video(au_png, "ALDH_Feb_Period_2000_2015.mp4", framerate =1)
 browseURL('ALDH_Feb_Period_2000_2015.mp4') # reproduce the video
 
 
@@ -330,7 +330,7 @@ ras_list_T <- list()
 for(i in list_T_ras){ras_list_T <- append(ras_list_T, crop(i, ext))}
 
 # step 3 - plot png via the loop
-index <- 0
+index <- 1
 for(i in ras_list_T){file_name <- paste("T_Feb", index, ".png", sep="")
 png(file=file_name)
 plot(i, col=clT)
@@ -339,7 +339,7 @@ index <- index+1}
 
 # step 4 - make the video
 au_png <- sprintf("T_Feb%01d.png", 0:15)
-av_encode_video(au_png, "T_Feb.mp4", framerate =1)
+av_encode_video(au_png, "T_Feb_Period_2000_2015.mp4", framerate =1)
 browseURL('T_Feb_Period_2000_2015.mp4')
 
 
