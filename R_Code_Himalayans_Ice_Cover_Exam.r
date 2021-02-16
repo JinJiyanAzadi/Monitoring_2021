@@ -1,7 +1,7 @@
 # MONITORING ECOSYSTEM CHANGES AND FUNCTIONING - UNIBO 2020/2021 - Prof. Duccio Rocchini / Student: Norma Brunetto
 # Exam 19.02.2021 
 
-# Object: Analysis of the Himalayans' albedo and land surface temperature over a perdiod covering 2000-2015 --> to see the effects of climate changes and its impacts
+# Object: Analysis of the Himalayans' albedo and land surface temperature over a period covering 2000-2015 --> to see the effects of climate changes and its impacts
 
 # Assuming that I already have installed all the packages needed, using the input "install.packages("name of the package")" 
 # I recall the needed libraries as per below:
@@ -116,7 +116,7 @@ index <- index+1}
 # step 4 - make the video from the frames, which is saved then on the directory folder
 au_png <- sprintf("ALDH_Feb%01d.png", 1:15)
 av_encode_video(au_png, "ALDH_Feb.mp4", framerate =1)
-browseURL('ALDH_Feb.mp4') # reproduce the video
+browseURL('ALDH_Feb_Period_2000_2015.mp4') # reproduce the video
 
 
 # Prepare the ground for the time series and forecast based on the albedo details, by extrapolating the min/max albedo values from the stack ALDH_15yr_c
@@ -340,7 +340,7 @@ index <- index+1}
 # step 4 - make the video
 au_png <- sprintf("T_Feb%01d.png", 0:15)
 av_encode_video(au_png, "T_Feb.mp4", framerate =1)
-browseURL('T_Feb.mp4')
+browseURL('T_Feb_Period_2000_2015.mp4')
 
 
 # Plot and save the boxplot to see the T° variation during the observed period
