@@ -19,7 +19,7 @@ library(av) # for the video making
 
 setwd("D:/Utenti/Norma/Desktop/exam") # setting the working directory. To know exactly the "location" of the working directory use the input "getwd".
 
-# Raster the albedo data for the 15yr period 2000-2015 --> February of each year
+# Raster the albedo data for the 15yr period 2000-2015 --> end of cyclicity on the 05th of February of each year
 # Albedo - Directional Albedo 1km Global V1 - datset from Copernicus, link below:
 # https://land.copernicus.vgt.vito.be/PDF/portal/Application.html#Browse;Root=511344;Collection=1000174;DoSearch=true;Time=NORMAL,NORMAL,1,JANUARY,2000,31,DECEMBER,2015;ROI=68.753799392097,22.705167173252,110.6990881459,44.954407294833
 
