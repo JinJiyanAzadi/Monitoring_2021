@@ -102,7 +102,7 @@ list_ALDH_ras <- lapply(ALDH_list, raster)
 
 # step 2 - crop and raster them into the ras_list
 ext <- c(68,96,26,38) 
-ras_list <- list()
+ras_list_ALDH <- list()
 for(i in list_ALDH_ras){ras_list <- append(ras_list, crop(i, ext))} # the "for" is used to create a "loop" in order to apply the same f to differnt objects
 
 # step 3 - plot png via the loop and save them progressively 
