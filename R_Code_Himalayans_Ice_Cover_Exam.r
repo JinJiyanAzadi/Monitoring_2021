@@ -136,28 +136,44 @@ min_values <- c(0.0199, 0.0213, 0.0220, 0.0218, 0.0228, 0.0208, 0.0217, 0.0227, 
 max_values<- c(0.7790, 0.7733, 0.7796, 0.7038, 0.7673,  0.7616, 0.7731, 0.7619, 0.7771, 0.7760, 0.7735, 0.7830, 0.7782, 0.7794, 0.7786)
 
 # Combine the values together before creating the data frame. 
-# Note: If the values are not combined before, the time series will result into two different graphs (prior the decomposition), one for the min and one for the max values.
+# Note: If the values are not combined before, the time series will result into two different graphs, one for the min and one for the max values, rather then combine all data in one.
 data <- (c(min_values, max_values))
 
 # Create a data frame with these values 
-df <- data.frame(min_values, max_values)
+df <- data.frame(data)
 df
-   min_values max_values
-1      0.0199     0.7790
-2      0.0213     0.7733
-3      0.0220     0.7796
-4      0.0218     0.7038
-5      0.0228     0.7673
-6      0.0208     0.7616
-7      0.0217     0.7731
-8      0.0227     0.7619
-9      0.0221     0.7771
-10     0.0210     0.7760
-11     0.0199     0.7735
-12     0.0203     0.7830
-13     0.0240     0.7782
-14     0.0192     0.7794
-15     0.0200     0.7786
+> df
+     data
+1  0.0199
+2  0.0213
+3  0.0220
+4  0.0218
+5  0.0228
+6  0.0208
+7  0.0217
+8  0.0227
+9  0.0221
+10 0.0210
+11 0.0199
+12 0.0203
+13 0.0240
+14 0.0192
+15 0.0200
+16 0.7790
+17 0.7733
+18 0.7796
+19 0.7038
+20 0.7673
+21 0.7616
+22 0.7731
+23 0.7619
+24 0.7771
+25 0.7760
+26 0.7735
+27 0.7830
+28 0.7782
+29 0.7794
+30 0.7786
 
 
 # Create the time series based on the data stored in df, using the argument ts()
