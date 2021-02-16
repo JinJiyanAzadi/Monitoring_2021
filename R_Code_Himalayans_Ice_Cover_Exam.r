@@ -103,11 +103,11 @@ list_ALDH_ras <- lapply(ALDH_list, raster)
 # step 2 - crop and raster them into the ras_list
 ext <- c(68,96,26,38) 
 ras_list_ALDH <- list()
-for(i in list_ALDH_ras){ras_list_ALDH <- append(ras_list, crop(i, ext))} # the "for" is used to create a "loop" in order to apply the same f to differnt objects
+for(i in list_ALDH_ras){ras_list_ALDH <- append(ras_list_ALDH, crop(i, ext))} # the "for" is used to create a "loop" in order to apply the same f to differnt objects
 
 # step 3 - plot png via the loop and save them progressively 
 index <- 1 
-for(i in ras_list){file_name <- paste("ALDH_Feb", index, ".png", sep="")
+for(i in ras_list_ALDH){file_name <- paste("ALDH_Feb", index, ".png", sep="")
 png(file=file_name)
 plot(i, col=cl)
 dev.off()
