@@ -387,7 +387,7 @@ boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mea
 sessionInfo() # to get the session info
 Sys.time() # to publish the time at which the script is done
 
-# Full script info @JinJiyanAzadi - github account to the following link: https://github.com/JinJiyanAzadi/Monitoring_2021/edit/main/R_Code_Himalayans_Ice_Cover_Exam.r
+# Full script info @JinJiyanAzadi - github account to the following link: https://github.com/JinJiyanAzadi/Monitoring_2021/blob/main/R_Code_Himalayas_Study_Case_Exam.r
 ###############################################################################################################
 
 # Thank you for the attention.
