@@ -330,13 +330,16 @@ T_15yr_c <- crop(T_15yr, ext)
 # Create e colour palette for the T° graphs in order to highlight tha T° variations among the years
 clT <- colorRampPalette(c('midnightblue','lightblue','yellow',"tan2"))(100)
 
+
+# To create a video from the above plotted T° graphs
 # Plot and save the cropped stack 
 png("T_15yr_c.png") # to save the graphs in the folder
 plot(T_15yr_c, col=clT) # to plot the T° in the period 2000-2015
 dev.off() # to close the graph. Note: sometimes after using dev.off, later on R won't show any graph, it is enough to repeat the input dev.off twice and it will go back to normal
 
 
-# Step 1 - reate a list of the files .nc
+# To create a video from the above plotted T° graphs
+# Step 1 - create a list of the files .nc
 T_list <- list.files(pattern="LST_Day") # I had to use the .TIF format as the original .hdf format was not recogn
 list_T_ras <- lapply(T_list, raster)
 
@@ -354,7 +357,7 @@ dev.off()
 index <- index+1}
 
 # step 4 - make the video
-au_png <- sprintf("T_Feb%01d.png", 0:15)
+au_png <- sprintf("T_Feb%01d.png", 1:15)
 av_encode_video(au_png, "T_Feb_Period_2000_2015.mp4", framerate =1)
 browseURL('T_Feb_Period_2000_2015.mp4')
 
