@@ -114,7 +114,7 @@ dev.off()
 index <- index+1}
 
 # step 4 - make the video from the frames, which is saved then on the directory folder
-au_png <- sprintf("ALDH_Feb%01d.png", 1:15)
+au_png <- sprintf("ALDH_Feb%01d.png", 1:16)
 av_encode_video(au_png, "ALDH_Feb_Period_2000_2015.mp4", framerate =1)
 browseURL('ALDH_Feb_Period_2000_2015.mp4') # reproduce the video
 
@@ -357,7 +357,7 @@ dev.off()
 index <- index+1}
 
 # step 4 - make the video
-au_png <- sprintf("T_Feb%01d.png", 1:15)
+au_png <- sprintf("T_Feb%01d.png", 1:16)
 av_encode_video(au_png, "T_Feb_Period_2000_2015.mp4", framerate =1)
 browseURL('T_Feb_Period_2000_2015.mp4')
 
