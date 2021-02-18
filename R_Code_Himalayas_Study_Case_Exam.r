@@ -374,8 +374,8 @@ dev.off()
 
 # Plot them together for a better comparison
 par(mfrow=c(2,1))
-boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015", xaxt = 'n')
-boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", xaxt = 'n')
+boxplot(T_15yr_c, horizontal=F, axis=T, outline=F, col="salmon", main="LST_Monthly_Feb T° variation", xlab=" Period 2000-2015", ylab= "T°", xaxt = 'n')
+boxplot(ALDH_15yr_c, horizontal=F, axis=T, outline=F, col="royalblue", main="Mean Annual_Feb Albedo variation", xlab=" Period 2000-2015", ylab= "Albedo", xaxt = 'n')
 
 
 #################################################
