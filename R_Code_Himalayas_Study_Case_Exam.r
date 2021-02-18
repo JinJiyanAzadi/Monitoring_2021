@@ -1,7 +1,8 @@
-# MONITORING ECOSYSTEM CHANGES AND FUNCTIONING - UNIBO 2020/2021 - Prof. Duccio Rocchini / Student: Norma Brunetto
+# MONITORING ECOSYSTEMS CHANGES AND FUNCTIONING - UNIBO 2020/2021 - Professor Duccio Rocchini / Student: Norma Brunetto
 # Exam 19.02.2021 
 
-# Object: Analysis of the Himalayans' albedo and land surface temperature over a period covering 2000-2015 --> to see the effects of climate changes and its impacts
+# Object: Analysis of the Hindu Kush - Karakorum - Himalayas (HKH) region's albedo index and land surface temperature over a period covering 2000-2015 --> 
+# to see the effects of climate changes
 
 # Assuming that I already have installed all the packages needed, using the input "install.packages("name of the package")" 
 # I recall the needed libraries as per below:
@@ -343,7 +344,7 @@ dev.off() # to close the graph. Note: sometimes after using dev.off, later on R 
 T_list <- list.files(pattern="LST_Day") # I had to use the .TIF format as the original .hdf format was not recogn
 list_T_ras <- lapply(T_list, raster)
 
-# step 2 - crop and raster them into the ras_list
+# step 2 - crop and raster them into the ras_list_T (empty list created)
 ext <- c(68,96,26,38)
 ras_list_T <- list()
 for(i in list_T_ras){ras_list_T <- append(ras_list_T, crop(i, ext))}
