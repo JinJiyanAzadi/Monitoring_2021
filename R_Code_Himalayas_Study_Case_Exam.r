@@ -186,7 +186,7 @@ plot(decompose(ts1_H))
 # Create the forecast using the Arima model= Autoregressive integrated moving average -->
 # fitted to time series data either to better understand the data or to predict future points in the series (forecasting).
 
-arimamodel <- auto.arima(ts1_H, stationary = F, seasonal = T) # auto.arima fits the best ARIMA model to univariate time series -->
+arimamodel <- auto.arima(ts1_H, stationary = T, seasonal = T) # auto.arima fits the best ARIMA model to univariate time series -->
 # the latter refers to a time series that consists of single (scalar) observations recorded sequentially over equal time increments.
 
 plot(forecast(arimamodel, h= 60), main="5yr_Forecast_Albedo",xlab="Period", ylab="Albedo values") # h arg is the number of months we want the forecast for --> h=60 means next 5 years
