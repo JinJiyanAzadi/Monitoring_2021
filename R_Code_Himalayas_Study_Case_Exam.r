@@ -205,7 +205,7 @@ gdalinfo("MOD11C3.A2000032.061.2020048181639.hdf")
 sds00 <- get_subdatasets("MOD11C3.A2000032.061.2020048181639.hdf")
 sds00
 
-# In this case we need only teh data in the first subset so we convert into .tif only the first line of the subset
+# In this case we need only the data in the first subset so we convert into .tif only the first line of the subset
 gdal_translate(sds00[1], dst_dataset = "LST_Day_Feb_2000.tif")
 
 # Raster the converted .tif file
@@ -325,7 +325,7 @@ class(T_15yr) # to double check the class of T_15yr and make sure it is a raster
 # Set again the cropping coordinates 
 ext <- c(68,96,26,38) # xmin xmax ymin ymax, where x=long & y=lat
 
-# CReate a cropped version of the previous stack
+# Create a cropped version of the previous stack
 T_15yr_c <- crop(T_15yr, ext)
 
 # Create e colour palette for the T° graphs in order to highlight tha T° variations among the years
