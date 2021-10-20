@@ -36,5 +36,30 @@ plot(rast)
 
 ###########################################################################################################################
 
-set("G:/temp_2000_2003")
-https://stackoverflow.com/questions/36772341/reading-hdf-files-into-r-and-converting-them-to-geotiff-rasters
+# https://stackoverflow.com/questions/36772341/reading-hdf-files-into-r-and-converting-them-to-geotiff-rasters
+
+
+# LOOP
+
+setwd("G:/temp_2000_2003")
+
+files <- dir(pattern = ".hdf")
+files
+
+filename <- substr(files, 35, 42) # extract character in string from letter 35 to 42
+filename <- paste0("Gbl LST_avg", filename, ".tif")
+
+i <- 1
+
+for (i in 1:35){
+  sds <- get_subdatasets(files[i])
+  gdal_translate(sds[1], dst_dataset = filename[i])
+}
+
+# LOOP + MEAN calculation
+for (i in 1:35){
+  sds <- get_subdatasets(files[i])
+  gdal_translate(sds[1], dst_dataset = filename[i])
+  fun = function(x) colMeans(i, na.rm = TRUE)
+}
+
