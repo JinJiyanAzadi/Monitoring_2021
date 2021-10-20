@@ -37,3 +37,4 @@ plot(rast)
 ###########################################################################################################################
 
 set("G:/temp_2000_2003")
+https://stackoverflow.com/questions/36772341/reading-hdf-files-into-r-and-converting-them-to-geotiff-rasters
